@@ -169,6 +169,11 @@ require (
 	gopkg.in/tomb.v2 v2.0.0-20161208151619-d5d1b5820637 // indirect
 )
 
+require github.com/rohannunu/pebble-cs598rap v0.0.0-00010101000000-000000000000
+
 replace github.com/apache/thrift => github.com/apache/thrift v0.0.0-20171203172758-327ebb6c2b6d
 
-go 1.18
+// replace github.com/cockroachdb/pebble => github.com/rohannunu/pebble-cs598rap/pebble v0.0.0-20251107190857-dadc9ec7e4bd // replacing this with my fork for local development
+replace github.com/rohannunu/pebble-cs598rap => ../pebble-cs598rap
+
+go 1.25.0

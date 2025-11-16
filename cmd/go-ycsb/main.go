@@ -80,6 +80,8 @@ import (
 	_ "github.com/pingcap/go-ycsb/db/s3"
 	// Register pebble db from my fork
 	_  "github.com/pingcap/go-ycsb/db/pebble"
+	// Register pebble LRU db (your LRU-based wrapper)
+    _ "github.com/pingcap/go-ycsb/db/pebblelru"
 )
 
 var (

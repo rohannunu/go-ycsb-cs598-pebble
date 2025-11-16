@@ -1,4 +1,4 @@
-package pebble
+package pebbledb
 
 import (
 	"bytes"
@@ -6,9 +6,11 @@ import (
 	"fmt"
 	"os"
 
+	//pebble "github.com/rohannunu/pebble-cs598rap/pebble"
 	"github.com/cockroachdb/pebble"
 	"github.com/magiconair/properties"
 	"github.com/pingcap/go-ycsb/pkg/ycsb"
+
 )
 
 type pebbleDB struct {
@@ -18,11 +20,11 @@ type pebbleDB struct {
 type pebbleCreator struct{}
 
 func init() {
-	fmt.Println(">>> registering my pebble wrapper... <<<")
 	ycsb.RegisterDBCreator("pebble", &pebbleCreator{})
 }
 
 func (c *pebbleCreator) Create(p *properties.Properties) (ycsb.DB, error) {
+	fmt.Println(">>> registering my pebble wrapper... <<<")
 	dir := p.GetString("pebble.dir", "/tmp/pebble")
 	drop := p.GetBool("dropdata", false)
 
