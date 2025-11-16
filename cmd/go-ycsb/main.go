@@ -78,6 +78,8 @@ import (
 	_ "github.com/pingcap/go-ycsb/db/dynamodb"
 	// Register s3 database
 	_ "github.com/pingcap/go-ycsb/db/s3"
+	// Register pebble db from my fork
+	_  "github.com/pingcap/go-ycsb/db/pebble"
 )
 
 var (
