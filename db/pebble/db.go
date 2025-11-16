@@ -18,6 +18,7 @@ type pebbleDB struct {
 type pebbleCreator struct{}
 
 func init() {
+	fmt.Println(">>> registering my pebble wrapper... <<<")
 	ycsb.RegisterDBCreator("pebble", &pebbleCreator{})
 }
 
