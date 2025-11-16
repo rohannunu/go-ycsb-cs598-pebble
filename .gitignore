@@ -10,7 +10,6 @@ tool/tool
 
 # percentile output format
 *.txt
-!pebble-data/*.txt   # allow txt files in pebble-data
 
 # hdr-plot output format
 *.png
