@@ -1,0 +1,40 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering pebble DeToX wrapper... <<<
+***************** properties *****************
+"pebble.detox_capacity"="512"
+"operationcount"="0"
+"requestdistribution"="zipfian"
+"recordcount"="1000"
+"dotransactions"="false"
+"dropdata"="true"
+"table"="usertable"
+"insertproportion"="0"
+"fieldcount"="10"
+"pebble.dir"="/tmp/pebbledetox"
+"workload"="core"
+"readproportion"="0.5"
+"readallfields"="true"
+"scanproportion"="0"
+"command"="load"
+"fieldlength"="100"
+"updateproportion"="0.5"
+**********************************************
+**********************************************
+Run finished, takes 2.178061042s
+INSERT - Takes(s): 2.2, Count: 1000, OPS: 459.1, Avg(us): 2160, Min(us): 0, Max(us): 11927, 50th(us): 5, 90th(us): 4891, 95th(us): 5167, 99th(us): 7951, 99.9th(us): 10999, 99.99th(us): 11927
+TOTAL  - Takes(s): 2.2, Count: 1000, OPS: 459.1, Avg(us): 2160, Min(us): 0, Max(us): 11927, 50th(us): 5, 90th(us): 4891, 95th(us): 5167, 99th(us): 7951, 99.9th(us): 10999, 99.99th(us): 11927
+=== DeToX Cache Stats ===
+  Hits:       0
+  Misses:     0
+  Hit Rate:   0.00%
+  Admissions: 1000
+  Evictions:  488
+  Prefetches:  0
+  Transactions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 1000
+  Unique keys:        1000
+  Repeated accesses:  0
+  Repeat ratio:       0.00%
+=======================

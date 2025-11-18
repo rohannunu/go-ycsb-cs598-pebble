@@ -1,0 +1,41 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering pebble DeToX wrapper... <<<
+***************** properties *****************
+"dropdata"="false"
+"command"="run"
+"dotransactions"="true"
+"updateproportion"="0.5"
+"readproportion"="0.5"
+"recordcount"="1000"
+"operationcount"="10000"
+"insertproportion"="0"
+"fieldlength"="100"
+"pebble.dir"="/tmp/pebbledetox"
+"requestdistribution"="zipfian"
+"pebble.detox_capacity"="512"
+"readallfields"="true"
+"fieldcount"="10"
+"table"="usertable"
+"workload"="core"
+"scanproportion"="0"
+**********************************************
+**********************************************
+Run finished, takes 7.270932042s
+READ   - Takes(s): 7.3, Count: 5061, OPS: 696.1, Avg(us): 9, Min(us): 0, Max(us): 804, 50th(us): 5, 90th(us): 20, 95th(us): 33, 99th(us): 73, 99.9th(us): 162, 99.99th(us): 491
+TOTAL  - Takes(s): 7.3, Count: 10000, OPS: 1375.4, Avg(us): 722, Min(us): 0, Max(us): 12807, 50th(us): 4, 90th(us): 3961, 95th(us): 4115, 99th(us): 5971, 99.9th(us): 9015, 99.99th(us): 11063
+UPDATE - Takes(s): 7.3, Count: 4939, OPS: 679.4, Avg(us): 1453, Min(us): 0, Max(us): 12807, 50th(us): 4, 90th(us): 4119, 95th(us): 4943, 99th(us): 6867, 99.9th(us): 9919, 99.99th(us): 12807
+=== DeToX Cache Stats ===
+  Hits:       7565
+  Misses:     1249
+  Hit Rate:   85.83%
+  Admissions: 1721
+  Evictions:  930
+  Prefetches:  0
+  Transactions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        1001
+  Repeated accesses:  8999
+  Repeat ratio:       89.99%
+=======================
