@@ -1,0 +1,36 @@
+Using request distribution 'latest' a keyrange of [0 999]
+>>> registering pebble LRU wrapper... <<<
+***************** properties *****************
+"insertproportion"="0"
+"requestdistribution"="latest"
+"dotransactions"="true"
+"command"="run"
+"recordcount"="1000"
+"workload"="core"
+"readallfields"="true"
+"readproportion"="0.5"
+"pebble.dir"="/tmp/pebblelru"
+"operationcount"="10000"
+"pebble.lru_capacity"="512"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"table"="usertable"
+**********************************************
+**********************************************
+Run finished, takes 4.492303417s
+READ   - Takes(s): 4.5, Count: 4953, OPS: 1102.8, Avg(us): 461, Min(us): 0, Max(us): 9903, 50th(us): 3, 90th(us): 3821, 95th(us): 4019, 99th(us): 5011, 99.9th(us): 8019, 99.99th(us): 9903
+TOTAL  - Takes(s): 4.5, Count: 10000, OPS: 2225.5, Avg(us): 445, Min(us): 0, Max(us): 9903, 50th(us): 2, 90th(us): 3803, 95th(us): 4011, 99th(us): 4939, 99.9th(us): 8015, 99.99th(us): 9087
+UPDATE - Takes(s): 4.5, Count: 5047, OPS: 1123.3, Avg(us): 430, Min(us): 0, Max(us): 8751, 50th(us): 1, 90th(us): 3731, 95th(us): 4003, 99th(us): 4903, 99.9th(us): 7979, 99.99th(us): 8735
+=== LRU Cache Stats ===
+  Hits:       4173
+  Misses:     780
+  Hit Rate:   84.25%
+  Promotions: 780
+  Evictions:  1048
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        914
+  Repeated accesses:  9086
+  Repeat ratio:       90.86%
+=======================

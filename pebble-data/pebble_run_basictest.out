@@ -1,0 +1,31 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering my pebble wrapper... <<<
+***************** properties *****************
+"workload"="core"
+"fieldcount"="10"
+"dotransactions"="true"
+"requestdistribution"="zipfian"
+"insertproportion"="0"
+"dropdata"="false"
+"operationcount"="10000"
+"updateproportion"="0.5"
+"readproportion"="0.5"
+"table"="usertable"
+"recordcount"="1000"
+"command"="run"
+"readallfields"="true"
+"scanproportion"="0"
+"fieldlength"="100"
+"pebble.dir"="/tmp/pebble"
+**********************************************
+READ   - Takes(s): 10.0, Count: 1997, OPS: 199.7, Avg(us): 22, Min(us): 1, Max(us): 385, 50th(us): 13, 90th(us): 50, 95th(us): 65, 99th(us): 107, 99.9th(us): 317, 99.99th(us): 385
+TOTAL  - Takes(s): 10.0, Count: 3999, OPS: 399.8, Avg(us): 2492, Min(us): 1, Max(us): 15759, 50th(us): 3645, 90th(us): 5875, 95th(us): 6131, 99th(us): 6755, 99.9th(us): 8799, 99.99th(us): 15759
+UPDATE - Takes(s): 10.0, Count: 2002, OPS: 200.3, Avg(us): 4955, Min(us): 3604, Max(us): 15759, 50th(us): 4879, 90th(us): 6131, 95th(us): 6187, 99th(us): 6995, 99.9th(us): 10727, 99.99th(us): 15759
+READ   - Takes(s): 20.0, Count: 4424, OPS: 221.2, Avg(us): 17, Min(us): 0, Max(us): 385, 50th(us): 11, 90th(us): 38, 95th(us): 54, 99th(us): 90, 99.9th(us): 155, 99.99th(us): 385
+TOTAL  - Takes(s): 20.0, Count: 8872, OPS: 443.6, Avg(us): 2246, Min(us): 0, Max(us): 15759, 50th(us): 3669, 90th(us): 5103, 95th(us): 5867, 99th(us): 6227, 99.9th(us): 8039, 99.99th(us): 14175
+UPDATE - Takes(s): 20.0, Count: 4448, OPS: 222.4, Avg(us): 4464, Min(us): 3586, Max(us): 15759, 50th(us): 4043, 90th(us): 5867, 95th(us): 6127, 99th(us): 6839, 99.9th(us): 9911, 99.99th(us): 15759
+**********************************************
+Run finished, takes 22.334790041s
+READ   - Takes(s): 22.3, Count: 4973, OPS: 222.7, Avg(us): 16, Min(us): 0, Max(us): 385, 50th(us): 11, 90th(us): 36, 95th(us): 53, 99th(us): 88, 99.9th(us): 155, 99.99th(us): 385
+TOTAL  - Takes(s): 22.3, Count: 10000, OPS: 447.7, Avg(us): 2225, Min(us): 0, Max(us): 15759, 50th(us): 3711, 90th(us): 5027, 95th(us): 5827, 99th(us): 6215, 99.9th(us): 8023, 99.99th(us): 14175
+UPDATE - Takes(s): 22.3, Count: 5027, OPS: 225.1, Avg(us): 4411, Min(us): 3586, Max(us): 15759, 50th(us): 4033, 90th(us): 5827, 95th(us): 6115, 99th(us): 6787, 99.9th(us): 9863, 99.99th(us): 14175

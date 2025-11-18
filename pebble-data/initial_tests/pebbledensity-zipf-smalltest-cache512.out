@@ -1,0 +1,39 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering pebble DensityCache wrapper... <<<
+***************** properties *****************
+"workload"="core"
+"readallfields"="true"
+"pebble.dir"="/tmp/pebbledensity"
+"requestdistribution"="zipfian"
+"updateproportion"="0.5"
+"pebble.density_capacity"="512"
+"command"="run"
+"table"="usertable"
+"readproportion"="0.5"
+"dotransactions"="true"
+"insertproportion"="0"
+"operationcount"="10000"
+"scanproportion"="0"
+"recordcount"="1000"
+**********************************************
+READ   - Takes(s): 10.0, Count: 3496, OPS: 349.6, Avg(us): 1476, Min(us): 0, Max(us): 11983, 50th(us): 4, 90th(us): 4047, 95th(us): 4099, 99th(us): 4991, 99.9th(us): 8999, 99.99th(us): 11983
+TOTAL  - Takes(s): 10.0, Count: 6886, OPS: 688.5, Avg(us): 1447, Min(us): 0, Max(us): 11983, 50th(us): 4, 90th(us): 4047, 95th(us): 4095, 99th(us): 4983, 99.9th(us): 8967, 99.99th(us): 11031
+UPDATE - Takes(s): 10.0, Count: 3390, OPS: 339.0, Avg(us): 1416, Min(us): 0, Max(us): 11031, 50th(us): 3, 90th(us): 4043, 95th(us): 4093, 99th(us): 4951, 99.9th(us): 8519, 99.99th(us): 11031
+**********************************************
+Run finished, takes 15.345294042s
+READ   - Takes(s): 15.3, Count: 5086, OPS: 331.5, Avg(us): 1553, Min(us): 0, Max(us): 11983, 50th(us): 5, 90th(us): 4057, 95th(us): 4115, 99th(us): 5883, 99.9th(us): 9023, 99.99th(us): 11031
+TOTAL  - Takes(s): 15.3, Count: 10000, OPS: 651.6, Avg(us): 1529, Min(us): 0, Max(us): 11983, 50th(us): 4, 90th(us): 4055, 95th(us): 4115, 99th(us): 5943, 99.9th(us): 9055, 99.99th(us): 11047
+UPDATE - Takes(s): 15.3, Count: 4914, OPS: 320.2, Avg(us): 1504, Min(us): 0, Max(us): 11047, 50th(us): 3, 90th(us): 4051, 95th(us): 4111, 99th(us): 5951, 99.9th(us): 9055, 99.99th(us): 11047
+=== Density Cache Stats ===
+  Hits:       5773
+  Misses:     4227
+  Hit Rate:   57.73%
+  Admissions: 4227
+  Evictions:  3715
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        1001
+  Repeated accesses:  8999
+  Repeat ratio:       89.99%
+=======================

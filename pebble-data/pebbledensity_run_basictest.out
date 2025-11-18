@@ -1,0 +1,42 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering pebble DensityCache wrapper... <<<
+***************** properties *****************
+"pebble.dir"="/tmp/pebbledensity"
+"updateproportion"="0.5"
+"operationcount"="10000"
+"command"="run"
+"requestdistribution"="zipfian"
+"dropdata"="false"
+"readproportion"="0.5"
+"table"="usertable"
+"recordcount"="1000"
+"readallfields"="true"
+"fieldlength"="100"
+"pebble.density_capacity"="512"
+"workload"="core"
+"fieldcount"="10"
+"dotransactions"="true"
+"scanproportion"="0"
+"insertproportion"="0"
+**********************************************
+READ   - Takes(s): 10.0, Count: 3331, OPS: 333.0, Avg(us): 1469, Min(us): 0, Max(us): 13063, 50th(us): 7, 90th(us): 4055, 95th(us): 4199, 99th(us): 5983, 99.9th(us): 9015, 99.99th(us): 13063
+TOTAL  - Takes(s): 10.0, Count: 6624, OPS: 662.3, Avg(us): 1503, Min(us): 0, Max(us): 13063, 50th(us): 6, 90th(us): 4053, 95th(us): 4227, 99th(us): 5983, 99.9th(us): 8815, 99.99th(us): 11071
+UPDATE - Takes(s): 10.0, Count: 3293, OPS: 329.2, Avg(us): 1538, Min(us): 0, Max(us): 11071, 50th(us): 5, 90th(us): 4049, 95th(us): 4227, 99th(us): 5983, 99.9th(us): 8055, 99.99th(us): 11071
+**********************************************
+Run finished, takes 15.772023792s
+READ   - Takes(s): 15.8, Count: 5026, OPS: 318.7, Avg(us): 1559, Min(us): 0, Max(us): 13063, 50th(us): 7, 90th(us): 4045, 95th(us): 4111, 99th(us): 5815, 99.9th(us): 8815, 99.99th(us): 10031
+TOTAL  - Takes(s): 15.8, Count: 10000, OPS: 634.0, Avg(us): 1571, Min(us): 0, Max(us): 13063, 50th(us): 6, 90th(us): 4043, 95th(us): 4107, 99th(us): 5887, 99.9th(us): 8099, 99.99th(us): 11071
+UPDATE - Takes(s): 15.8, Count: 4974, OPS: 315.3, Avg(us): 1583, Min(us): 0, Max(us): 11071, 50th(us): 5, 90th(us): 4041, 95th(us): 4103, 99th(us): 5891, 99.9th(us): 8031, 99.99th(us): 11071
+=== Density Cache Stats ===
+  Hits:       5681
+  Misses:     4319
+  Hit Rate:   56.81%
+  Admissions: 4319
+  Evictions:  3807
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        1000
+  Repeated accesses:  9000
+  Repeat ratio:       90.00%
+=======================

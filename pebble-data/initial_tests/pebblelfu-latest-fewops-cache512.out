@@ -1,0 +1,36 @@
+Using request distribution 'latest' a keyrange of [0 999]
+>>> registering pebble LFU wrapper... <<<
+***************** properties *****************
+"table"="usertable"
+"insertproportion"="0"
+"recordcount"="1000"
+"updateproportion"="0.5"
+"workload"="core"
+"pebble.lfu_capacity"="512"
+"dotransactions"="true"
+"command"="run"
+"scanproportion"="0"
+"readallfields"="true"
+"requestdistribution"="latest"
+"operationcount"="500"
+"readproportion"="0.5"
+"pebble.dir"="/tmp/pebblelfu"
+**********************************************
+**********************************************
+Run finished, takes 1.755916ms
+READ   - Takes(s): 0.0, Count: 243, OPS: 141402.4, Avg(us): 3, Min(us): 0, Max(us): 118, 50th(us): 1, 90th(us): 7, 95th(us): 11, 99th(us): 34, 99.9th(us): 118, 99.99th(us): 118
+TOTAL  - Takes(s): 0.0, Count: 500, OPS: 296120.8, Avg(us): 1, Min(us): 0, Max(us): 118, 50th(us): 0, 90th(us): 5, 95th(us): 8, 99th(us): 31, 99.9th(us): 118, 99.99th(us): 118
+UPDATE - Takes(s): 0.0, Count: 257, OPS: 153612.5, Avg(us): 0, Min(us): 0, Max(us): 71, 50th(us): 0, 90th(us): 0, 95th(us): 1, 99th(us): 4, 99.9th(us): 71, 99.99th(us): 71
+=== LFU Cache Stats ===
+  Hits:       138
+  Misses:     105
+  Hit Rate:   56.79%
+  Promotions: 105
+  Evictions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 500
+  Unique keys:        205
+  Repeated accesses:  295
+  Repeat ratio:       59.00%
+=======================

@@ -84,6 +84,8 @@ import (
     _ "github.com/pingcap/go-ycsb/db/pebblelru"
 	// Register pebble LFU db (my LFU-based wrapper)
 	_ "github.com/pingcap/go-ycsb/db/pebblelfu"
+	// Register pebble DensityCache db (my DensityCache-based wrapper)
+	_ "github.com/pingcap/go-ycsb/db/pebbledensity"
 )
 
 var (

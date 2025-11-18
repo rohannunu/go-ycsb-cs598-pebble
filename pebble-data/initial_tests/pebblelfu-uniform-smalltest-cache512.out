@@ -1,0 +1,39 @@
+Using request distribution 'uniform' a keyrange of [0 999]
+>>> registering pebble LFU wrapper... <<<
+***************** properties *****************
+"workload"="core"
+"insertproportion"="0"
+"pebble.lfu_capacity"="512"
+"operationcount"="10000"
+"scanproportion"="0"
+"requestdistribution"="uniform"
+"updateproportion"="0.5"
+"recordcount"="1000"
+"readallfields"="true"
+"pebble.dir"="/tmp/pebblelfu"
+"dotransactions"="true"
+"readproportion"="0.5"
+"command"="run"
+"table"="usertable"
+**********************************************
+READ   - Takes(s): 10.0, Count: 2754, OPS: 275.4, Avg(us): 1798, Min(us): 0, Max(us): 10799, 50th(us): 6, 90th(us): 4887, 95th(us): 5031, 99th(us): 6103, 99.9th(us): 8035, 99.99th(us): 10799
+TOTAL  - Takes(s): 10.0, Count: 5463, OPS: 546.2, Avg(us): 1825, Min(us): 0, Max(us): 15975, 50th(us): 5, 90th(us): 4859, 95th(us): 5019, 99th(us): 6083, 99.9th(us): 8991, 99.99th(us): 13239
+UPDATE - Takes(s): 10.0, Count: 2709, OPS: 270.8, Avg(us): 1851, Min(us): 0, Max(us): 15975, 50th(us): 4, 90th(us): 4839, 95th(us): 4999, 99th(us): 6031, 99.9th(us): 8855, 99.99th(us): 15975
+**********************************************
+Run finished, takes 18.855109s
+READ   - Takes(s): 18.9, Count: 5060, OPS: 268.4, Avg(us): 1859, Min(us): 0, Max(us): 10799, 50th(us): 9, 90th(us): 4139, 95th(us): 4947, 99th(us): 5991, 99.9th(us): 8035, 99.99th(us): 9007
+TOTAL  - Takes(s): 18.9, Count: 10000, OPS: 530.4, Avg(us): 1880, Min(us): 0, Max(us): 15975, 50th(us): 8, 90th(us): 4135, 95th(us): 4943, 99th(us): 5975, 99.9th(us): 8319, 99.99th(us): 13239
+UPDATE - Takes(s): 18.9, Count: 4940, OPS: 262.0, Avg(us): 1900, Min(us): 0, Max(us): 15975, 50th(us): 7, 90th(us): 4127, 95th(us): 4939, 99th(us): 5959, 99.9th(us): 8855, 99.99th(us): 15975
+=== LFU Cache Stats ===
+  Hits:       2570
+  Misses:     2490
+  Hit Rate:   50.79%
+  Promotions: 2490
+  Evictions:  2227
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        1000
+  Repeated accesses:  9000
+  Repeat ratio:       90.00%
+=======================

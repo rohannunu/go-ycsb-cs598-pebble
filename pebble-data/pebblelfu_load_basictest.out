@@ -1,0 +1,38 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering pebble LFU wrapper... <<<
+***************** properties *****************
+"insertproportion"="0"
+"table"="usertable"
+"workload"="core"
+"readallfields"="true"
+"requestdistribution"="zipfian"
+"fieldcount"="10"
+"recordcount"="1000"
+"command"="load"
+"operationcount"="0"
+"fieldlength"="100"
+"updateproportion"="0.5"
+"pebble.lfu_capacity"="512"
+"pebble.dir"="/tmp/pebblelfu"
+"scanproportion"="0"
+"readproportion"="0.5"
+"dropdata"="true"
+"dotransactions"="false"
+**********************************************
+**********************************************
+Run finished, takes 2.112883209s
+INSERT - Takes(s): 2.1, Count: 1000, OPS: 473.2, Avg(us): 2097, Min(us): 0, Max(us): 14199, 50th(us): 4, 90th(us): 4499, 95th(us): 5019, 99th(us): 7003, 99.9th(us): 8847, 99.99th(us): 14199
+TOTAL  - Takes(s): 2.1, Count: 1000, OPS: 473.2, Avg(us): 2097, Min(us): 0, Max(us): 14199, 50th(us): 4, 90th(us): 4499, 95th(us): 5019, 99th(us): 7003, 99.9th(us): 8847, 99.99th(us): 14199
+=== LFU Cache Stats ===
+  Hits:       0
+  Misses:     0
+  Hit Rate:   0.00%
+  Promotions: 0
+  Evictions:  488
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 1000
+  Unique keys:        1000
+  Repeated accesses:  0
+  Repeat ratio:       0.00%
+=======================

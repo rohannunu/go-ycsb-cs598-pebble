@@ -1,0 +1,36 @@
+Using request distribution 'latest' a keyrange of [0 999]
+>>> registering pebble DensityCache wrapper... <<<
+***************** properties *****************
+"command"="run"
+"scanproportion"="0"
+"readproportion"="0.5"
+"requestdistribution"="latest"
+"operationcount"="10000"
+"table"="usertable"
+"readallfields"="true"
+"updateproportion"="0.5"
+"recordcount"="1000"
+"pebble.dir"="/tmp/pebbledensity"
+"dotransactions"="true"
+"insertproportion"="0"
+"workload"="core"
+"pebble.density_capacity"="512"
+**********************************************
+**********************************************
+Run finished, takes 5.092017375s
+READ   - Takes(s): 5.1, Count: 5021, OPS: 986.2, Avg(us): 533, Min(us): 0, Max(us): 10799, 50th(us): 2, 90th(us): 3901, 95th(us): 4009, 99th(us): 4195, 99.9th(us): 8951, 99.99th(us): 10023
+TOTAL  - Takes(s): 5.1, Count: 10000, OPS: 1964.2, Avg(us): 506, Min(us): 0, Max(us): 10799, 50th(us): 1, 90th(us): 3883, 95th(us): 4003, 99th(us): 4155, 99.9th(us): 8919, 99.99th(us): 10023
+UPDATE - Takes(s): 5.1, Count: 4979, OPS: 978.0, Avg(us): 478, Min(us): 0, Max(us): 9943, 50th(us): 1, 90th(us): 3863, 95th(us): 3997, 99th(us): 4135, 99.9th(us): 8895, 99.99th(us): 9943
+=== Density Cache Stats ===
+  Hits:       8259
+  Misses:     1741
+  Hit Rate:   82.59%
+  Admissions: 1741
+  Evictions:  1229
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        899
+  Repeated accesses:  9101
+  Repeat ratio:       91.01%
+=======================

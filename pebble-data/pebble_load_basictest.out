@@ -1,0 +1,24 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering my pebble wrapper... <<<
+***************** properties *****************
+"workload"="core"
+"dropdata"="true"
+"recordcount"="1000"
+"readproportion"="0.5"
+"dotransactions"="false"
+"table"="usertable"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"operationcount"="0"
+"requestdistribution"="zipfian"
+"fieldlength"="100"
+"pebble.dir"="/tmp/pebble"
+"readallfields"="true"
+"fieldcount"="10"
+"insertproportion"="0"
+"command"="load"
+**********************************************
+**********************************************
+Run finished, takes 4.352967625s
+INSERT - Takes(s): 4.3, Count: 1000, OPS: 229.9, Avg(us): 4322, Min(us): 3540, Max(us): 12983, 50th(us): 4065, 90th(us): 5143, 95th(us): 5899, 99th(us): 6771, 99.9th(us): 12807, 99.99th(us): 12983
+TOTAL  - Takes(s): 4.3, Count: 1000, OPS: 229.9, Avg(us): 4322, Min(us): 3540, Max(us): 12983, 50th(us): 4065, 90th(us): 5143, 95th(us): 5899, 99th(us): 6771, 99.9th(us): 12807, 99.99th(us): 12983

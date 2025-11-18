@@ -1,0 +1,42 @@
+Using request distribution 'zipfian' a keyrange of [0 1000]
+>>> registering pebble LFU wrapper... <<<
+***************** properties *****************
+"fieldlength"="100"
+"fieldcount"="10"
+"command"="run"
+"recordcount"="1000"
+"readproportion"="0.5"
+"updateproportion"="0.5"
+"pebble.lfu_capacity"="512"
+"requestdistribution"="zipfian"
+"dropdata"="false"
+"table"="usertable"
+"readallfields"="true"
+"insertproportion"="0"
+"scanproportion"="0"
+"operationcount"="10000"
+"dotransactions"="true"
+"workload"="core"
+"pebble.dir"="/tmp/pebblelfu"
+**********************************************
+READ   - Takes(s): 10.0, Count: 3514, OPS: 351.4, Avg(us): 1463, Min(us): 0, Max(us): 14127, 50th(us): 7, 90th(us): 4089, 95th(us): 4791, 99th(us): 5955, 99.9th(us): 9239, 99.99th(us): 14127
+TOTAL  - Takes(s): 10.0, Count: 6829, OPS: 682.8, Avg(us): 1458, Min(us): 0, Max(us): 14127, 50th(us): 6, 90th(us): 4083, 95th(us): 4747, 99th(us): 5955, 99.9th(us): 8967, 99.99th(us): 10063
+UPDATE - Takes(s): 10.0, Count: 3315, OPS: 331.5, Avg(us): 1453, Min(us): 0, Max(us): 9943, 50th(us): 6, 90th(us): 4073, 95th(us): 4567, 99th(us): 5951, 99.9th(us): 7999, 99.99th(us): 9943
+**********************************************
+Run finished, takes 14.974609208s
+READ   - Takes(s): 15.0, Count: 5121, OPS: 342.0, Avg(us): 1504, Min(us): 0, Max(us): 14127, 50th(us): 8, 90th(us): 4075, 95th(us): 4223, 99th(us): 5875, 99.9th(us): 8967, 99.99th(us): 10063
+TOTAL  - Takes(s): 15.0, Count: 10000, OPS: 667.8, Avg(us): 1492, Min(us): 0, Max(us): 14127, 50th(us): 7, 90th(us): 4067, 95th(us): 4187, 99th(us): 5887, 99.9th(us): 8123, 99.99th(us): 10727
+UPDATE - Takes(s): 15.0, Count: 4879, OPS: 325.8, Avg(us): 1479, Min(us): 0, Max(us): 10727, 50th(us): 6, 90th(us): 4055, 95th(us): 4159, 99th(us): 5895, 99.9th(us): 7975, 99.99th(us): 10727
+=== LFU Cache Stats ===
+  Hits:       3007
+  Misses:     2114
+  Hit Rate:   58.72%
+  Promotions: 2114
+  Evictions:  1741
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 10000
+  Unique keys:        1000
+  Repeated accesses:  9000
+  Repeat ratio:       90.00%
+=======================
