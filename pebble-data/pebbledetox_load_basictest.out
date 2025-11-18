@@ -1,28 +1,28 @@
 Using request distribution 'zipfian' a keyrange of [0 1000]
 >>> registering pebble DeToX wrapper... <<<
 ***************** properties *****************
+"table"="usertable"
+"dropdata"="true"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"fieldcount"="10"
+"dotransactions"="false"
+"recordcount"="1000"
+"requestdistribution"="zipfian"
+"workload"="core"
+"fieldlength"="100"
 "pebble.detox_capacity"="512"
 "operationcount"="0"
-"requestdistribution"="zipfian"
-"recordcount"="1000"
-"dotransactions"="false"
-"dropdata"="true"
-"table"="usertable"
 "insertproportion"="0"
-"fieldcount"="10"
 "pebble.dir"="/tmp/pebbledetox"
-"workload"="core"
-"readproportion"="0.5"
-"readallfields"="true"
-"scanproportion"="0"
 "command"="load"
-"fieldlength"="100"
-"updateproportion"="0.5"
+"readallfields"="true"
+"readproportion"="0.5"
 **********************************************
 **********************************************
-Run finished, takes 2.178061042s
-INSERT - Takes(s): 2.2, Count: 1000, OPS: 459.1, Avg(us): 2160, Min(us): 0, Max(us): 11927, 50th(us): 5, 90th(us): 4891, 95th(us): 5167, 99th(us): 7951, 99.9th(us): 10999, 99.99th(us): 11927
-TOTAL  - Takes(s): 2.2, Count: 1000, OPS: 459.1, Avg(us): 2160, Min(us): 0, Max(us): 11927, 50th(us): 5, 90th(us): 4891, 95th(us): 5167, 99th(us): 7951, 99.9th(us): 10999, 99.99th(us): 11927
+Run finished, takes 2.026884542s
+INSERT - Takes(s): 2.0, Count: 1000, OPS: 493.4, Avg(us): 2014, Min(us): 0, Max(us): 12983, 50th(us): 8, 90th(us): 4061, 95th(us): 4139, 99th(us): 5851, 99.9th(us): 8059, 99.99th(us): 12983
+TOTAL  - Takes(s): 2.0, Count: 1000, OPS: 493.4, Avg(us): 2014, Min(us): 0, Max(us): 12983, 50th(us): 8, 90th(us): 4061, 95th(us): 4139, 99th(us): 5851, 99.9th(us): 8059, 99.99th(us): 12983
 === DeToX Cache Stats ===
   Hits:       0
   Misses:     0

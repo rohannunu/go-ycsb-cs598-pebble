@@ -2,40 +2,40 @@ Using request distribution 'zipfian' a keyrange of [0 1000]
 >>> registering pebble DeToX wrapper... <<<
 ***************** properties *****************
 "dropdata"="false"
-"command"="run"
-"dotransactions"="true"
 "updateproportion"="0.5"
-"readproportion"="0.5"
-"recordcount"="1000"
-"operationcount"="10000"
-"insertproportion"="0"
-"fieldlength"="100"
-"pebble.dir"="/tmp/pebbledetox"
-"requestdistribution"="zipfian"
-"pebble.detox_capacity"="512"
-"readallfields"="true"
-"fieldcount"="10"
-"table"="usertable"
-"workload"="core"
 "scanproportion"="0"
+"operationcount"="10000"
+"command"="run"
+"table"="usertable"
+"requestdistribution"="zipfian"
+"workload"="core"
+"pebble.dir"="/tmp/pebbledetox"
+"pebble.detox_capacity"="512"
+"readproportion"="0.5"
+"fieldlength"="100"
+"recordcount"="1000"
+"readallfields"="true"
+"dotransactions"="true"
+"insertproportion"="0"
+"fieldcount"="10"
 **********************************************
 **********************************************
-Run finished, takes 7.270932042s
-READ   - Takes(s): 7.3, Count: 5061, OPS: 696.1, Avg(us): 9, Min(us): 0, Max(us): 804, 50th(us): 5, 90th(us): 20, 95th(us): 33, 99th(us): 73, 99.9th(us): 162, 99.99th(us): 491
-TOTAL  - Takes(s): 7.3, Count: 10000, OPS: 1375.4, Avg(us): 722, Min(us): 0, Max(us): 12807, 50th(us): 4, 90th(us): 3961, 95th(us): 4115, 99th(us): 5971, 99.9th(us): 9015, 99.99th(us): 11063
-UPDATE - Takes(s): 7.3, Count: 4939, OPS: 679.4, Avg(us): 1453, Min(us): 0, Max(us): 12807, 50th(us): 4, 90th(us): 4119, 95th(us): 4943, 99th(us): 6867, 99.9th(us): 9919, 99.99th(us): 12807
+Run finished, takes 6.989134125s
+READ   - Takes(s): 7.0, Count: 4971, OPS: 711.3, Avg(us): 10, Min(us): 0, Max(us): 242, 50th(us): 6, 90th(us): 24, 95th(us): 33, 99th(us): 72, 99.9th(us): 136, 99.99th(us): 242
+TOTAL  - Takes(s): 7.0, Count: 10000, OPS: 1430.7, Avg(us): 694, Min(us): 0, Max(us): 12855, 50th(us): 5, 90th(us): 3935, 95th(us): 4019, 99th(us): 4823, 99.9th(us): 7959, 99.99th(us): 11975
+UPDATE - Takes(s): 7.0, Count: 5029, OPS: 719.5, Avg(us): 1370, Min(us): 0, Max(us): 12855, 50th(us): 3, 90th(us): 4017, 95th(us): 4091, 99th(us): 5819, 99.9th(us): 9959, 99.99th(us): 11975
 === DeToX Cache Stats ===
-  Hits:       7565
-  Misses:     1249
-  Hit Rate:   85.83%
-  Admissions: 1721
-  Evictions:  930
-  Prefetches:  0
+  Hits:       7477
+  Misses:     1233
+  Hit Rate:   85.84%
+  Admissions: 1764
+  Evictions:  1037
+  Prefetches:  4971
   Transactions:  0
 =======================
 === Key Reuse Stats ===
   Total key accesses: 10000
-  Unique keys:        1001
-  Repeated accesses:  8999
-  Repeat ratio:       89.99%
+  Unique keys:        1000
+  Repeated accesses:  9000
+  Repeat ratio:       90.00%
 =======================
