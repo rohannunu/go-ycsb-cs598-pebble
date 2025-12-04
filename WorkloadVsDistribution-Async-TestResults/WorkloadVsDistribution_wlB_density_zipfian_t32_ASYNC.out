@@ -1,0 +1,53 @@
+Using request distribution 'zipfian' a keyrange of [0 25000000]
+>>> registering pebble DensityCache wrapper... <<<
+2025/12/04 00:34:47 [JOB 1] WAL file /tmp/pebble/162064.log with log number 162064 stopped reading at offset: 0; replayed 0 keys in 0 batches
+***************** properties *****************
+"updateproportion"="0.05"
+"dotransactions"="true"
+"table"="usertable"
+"readallfields"="true"
+"requestdistribution"="zipfian"
+"pebble.density_capacity"="2500000"
+"operationcount"="3000000"
+"dropdata"="false"
+"recordcount"="25000000"
+"readproportion"="0.95"
+"scanproportion"="0"
+"fieldlength"="200"
+"pebble.dir"="/tmp/pebble"
+"fieldcount"="10"
+"insertproportion"="0"
+"threadcount"="32"
+"command"="run"
+"workload"="core"
+**********************************************
+READ   - Takes(s): 10.0, Count: 541240, OPS: 54118.8, Avg(us): 575, Min(us): 2, Max(us): 34079, 50th(us): 288, 90th(us): 1572, 95th(us): 2031, 99th(us): 3039, 99.9th(us): 4651, 99.99th(us): 13287
+TOTAL  - Takes(s): 10.0, Count: 569617, OPS: 56944.7, Avg(us): 554, Min(us): 1, Max(us): 34079, 50th(us): 261, 90th(us): 1541, 95th(us): 1999, 99th(us): 3009, 99.9th(us): 4587, 99.99th(us): 13183
+UPDATE - Takes(s): 10.0, Count: 28377, OPS: 2837.3, Avg(us): 151, Min(us): 1, Max(us): 8543, 50th(us): 20, 90th(us): 488, 95th(us): 782, 99th(us): 1504, 99.9th(us): 2595, 99.99th(us): 3353
+READ   - Takes(s): 20.0, Count: 1086790, OPS: 54334.4, Avg(us): 570, Min(us): 2, Max(us): 34079, 50th(us): 275, 90th(us): 1573, 95th(us): 2031, 99th(us): 3053, 99.9th(us): 4695, 99.99th(us): 13655
+TOTAL  - Takes(s): 20.0, Count: 1143718, OPS: 57184.0, Avg(us): 552, Min(us): 1, Max(us): 34079, 50th(us): 250, 90th(us): 1543, 95th(us): 2001, 99th(us): 3021, 99.9th(us): 4651, 99.99th(us): 13343
+UPDATE - Takes(s): 20.0, Count: 56928, OPS: 2846.1, Avg(us): 195, Min(us): 1, Max(us): 8543, 50th(us): 33, 90th(us): 634, 95th(us): 973, 99th(us): 1692, 99.9th(us): 2863, 99.99th(us): 3993
+READ   - Takes(s): 30.0, Count: 1649913, OPS: 54996.6, Avg(us): 562, Min(us): 2, Max(us): 34079, 50th(us): 256, 90th(us): 1568, 95th(us): 2037, 99th(us): 3077, 99.9th(us): 4735, 99.99th(us): 13559
+TOTAL  - Takes(s): 30.0, Count: 1736454, OPS: 57879.2, Avg(us): 545, Min(us): 1, Max(us): 34079, 50th(us): 233, 90th(us): 1539, 95th(us): 2007, 99th(us): 3047, 99.9th(us): 4691, 99.99th(us): 13343
+UPDATE - Takes(s): 30.0, Count: 86541, OPS: 2884.7, Avg(us): 211, Min(us): 1, Max(us): 8543, 50th(us): 37, 90th(us): 685, 95th(us): 1041, 99th(us): 1813, 99.9th(us): 3001, 99.99th(us): 4383
+READ   - Takes(s): 40.0, Count: 2281174, OPS: 57027.8, Avg(us): 542, Min(us): 2, Max(us): 34079, 50th(us): 233, 90th(us): 1534, 95th(us): 1993, 99th(us): 3007, 99.9th(us): 4575, 99.99th(us): 12647
+TOTAL  - Takes(s): 40.0, Count: 2401063, OPS: 60025.9, Avg(us): 525, Min(us): 1, Max(us): 34079, 50th(us): 210, 90th(us): 1505, 95th(us): 1964, 99th(us): 2977, 99.9th(us): 4535, 99.99th(us): 12319
+UPDATE - Takes(s): 40.0, Count: 119889, OPS: 2997.3, Avg(us): 206, Min(us): 1, Max(us): 8543, 50th(us): 37, 90th(us): 669, 95th(us): 1002, 99th(us): 1747, 99.9th(us): 2875, 99.99th(us): 4247
+**********************************************
+Run finished, takes 49.2503302s
+READ   - Takes(s): 49.3, Count: 2850350, OPS: 57872.1, Avg(us): 530, Min(us): 2, Max(us): 34079, 50th(us): 222, 90th(us): 1507, 95th(us): 1954, 99th(us): 2943, 99.9th(us): 4459, 99.99th(us): 12175
+TOTAL  - Takes(s): 49.3, Count: 3000000, OPS: 60912.4, Avg(us): 515, Min(us): 1, Max(us): 34079, 50th(us): 202, 90th(us): 1480, 95th(us): 1927, 99th(us): 2913, 99.9th(us): 4419, 99.99th(us): 11703
+UPDATE - Takes(s): 49.3, Count: 149650, OPS: 3038.4, Avg(us): 229, Min(us): 1, Max(us): 15951, 50th(us): 45, 90th(us): 749, 95th(us): 1080, 99th(us): 1794, 99.9th(us): 2839, 99.99th(us): 4247
+=== Density Cache Stats ===
+  Hits:       1483742
+  Misses:     1516258
+  Hit Rate:   49.46%
+  Admissions: 1516251
+  Evictions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 3000000
+  Unique keys:        1516250
+  Repeated accesses:  1483750
+  Repeat ratio:       49.46%
+=======================

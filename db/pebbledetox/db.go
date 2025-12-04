@@ -174,7 +174,7 @@ func (db *pebbleDetoxDB) Insert(ctx context.Context, table string, key string, v
 	data := encodeValues(values)
 	db.recordKey(k)
 
-	_, err := db.detox.Set(k, data, true)
+	_, err := db.detox.Set(k, data, true, true)
 	return err
 }
 
@@ -184,7 +184,7 @@ func (db *pebbleDetoxDB) Read(ctx context.Context, table string, key string, fie
 
 	db.recordKey(k)
 
-	val, found, err := db.detox.Get(k)
+	val, found, err := db.detox.Get(k, true)
 	if err != nil {
 		return nil, err
 	}

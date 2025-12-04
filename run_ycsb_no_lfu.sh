@@ -9,18 +9,13 @@ FIELDCOUNT=10
 FIELDLEN=200
 DBDIR=/tmp/pebble
 
-# This script assumes you've already loaded once with:
-# bin/go-ycsb load pebble -P workloads/workloada \
-#   -p recordcount=${RECORDCOUNT} -p fieldcount=${FIELDCOUNT} -p fieldlength=${FIELDLEN}
-
 run_experiment() {
   local group="$1"      # WorkloadVsDistribution or MultithreadScaling
   local wl="$2"         # A, B, or C
-  local cache="$3"      # none, lru, lfu, density, detox
+  local cache="$3"      # none, lru, density, detox
   local dist="$4"       # zipfian, uniform, hotspot, sequential
-  local threads="$5"    # 1, 8, 16, 32, 64, 128 (depending on group)
+  local threads="$5"    # 1, 8, 32, 64, 128 (depending on group)
   local cachesize="$6"  # 0 or 2500000
-  local timeout_secs=600   # 10 minutes
 
   # ---------------------------
   # Map cache to DB name
@@ -29,7 +24,6 @@ run_experiment() {
   case "$cache" in
     none)    db="pebble" ;;
     lru)     db="pebblelru" ;;
-    lfu)     db="pebblelfu" ;;
     density) db="pebbledensity" ;;
     detox)   db="pebbledetox" ;;
     *) echo "Unknown cache type: $cache" >&2; return 1 ;;
@@ -47,9 +41,17 @@ run_experiment() {
   esac
 
   # ---------------------------
+  # Label: Density = ASYNC, others = NOASYNC
+  # ---------------------------
+  local label="NOASYNC"
+  if [ "$cache" = "density" ]; then
+    label="ASYNC"
+  fi
+
+  # ---------------------------
   # Output file name
   # ---------------------------
-  local outfile="${group}_wl${wl}_${cache}_${dist}_t${threads}_ASYNC.out"
+  local outfile="${group}_wl${wl}_${cache}_${dist}_t${threads}_${label}.out"
 
   echo "Running ${group} wl${wl} cache=${cache} dist=${dist} threads=${threads} -> ${outfile}"
 
@@ -80,9 +82,6 @@ run_experiment() {
       lru)
         cmd="${cmd} -p pebble.lru_capacity=${cachesize}"
         ;;
-      lfu)
-        cmd="${cmd} -p pebble.lfu_capacity=${cachesize}"
-        ;;
       density)
         cmd="${cmd} -p pebble.density_capacity=${cachesize}"
         ;;
@@ -92,28 +91,13 @@ run_experiment() {
     esac
   fi
 
-  # ---------------------------
-  # Run with timeout (SIGINT ~ Ctrl+C after 10 minutes)
-  # ---------------------------
-  if ! eval "timeout -s INT ${timeout_secs} ${cmd} > ${outfile} 2>&1"; then
-    rc=$?
-    if [ $rc -eq 124 ]; then
-      echo "  -> Timed out after ${timeout_secs}s, moving on..."
-    else
-      echo "  -> Command exited with status ${rc} (see ${outfile})"
-    fi
-  fi
+  # Run and log to .out
+  eval "${cmd} > ${outfile} 2>&1"
 }
 
 # ======================================
 # 1) WorkloadVsDistribution experiments
 # ======================================
-# Workloads: A, B, C
-# Caches: None, LRU, LFU, Density, DeToX
-# Threads: 32
-# Distributions: zipfian, uniform, hotspot, sequential
-# Cache size: 0 for None, 2,500,000 for others
-
 for wl in A B C; do
   for dist in zipfian uniform hotspot sequential; do
     # No cache
@@ -121,7 +105,6 @@ for wl in A B C; do
 
     # Cached variants
     run_experiment "WorkloadVsDistribution" "$wl" "lru"     "$dist" 32 2500000
-    run_experiment "WorkloadVsDistribution" "$wl" "lfu"     "$dist" 32 2500000
     run_experiment "WorkloadVsDistribution" "$wl" "density" "$dist" 32 2500000
     run_experiment "WorkloadVsDistribution" "$wl" "detox"   "$dist" 32 2500000
   done
@@ -130,18 +113,12 @@ done
 # ======================================
 # 2) MultithreadScaling experiments
 # ======================================
-# Workload: A
-# Distribution: zipfian
-# Threads: 1, 8, 16, 32, 64, 128
-# Same cache sizes as above
-
 for threads in 1 8 16 32 64 128; do
   # No cache
   run_experiment "MultithreadScaling" "A" "none"    "zipfian" "${threads}" 0
 
   # Cached variants
   run_experiment "MultithreadScaling" "A" "lru"     "zipfian" "${threads}" 2500000
-  run_experiment "MultithreadScaling" "A" "lfu"     "zipfian" "${threads}" 2500000
   run_experiment "MultithreadScaling" "A" "density" "zipfian" "${threads}" 2500000
   run_experiment "MultithreadScaling" "A" "detox"   "zipfian" "${threads}" 2500000
 done

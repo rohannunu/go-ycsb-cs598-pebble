@@ -173,7 +173,7 @@ func (db *pebbleLFUDB) Insert(ctx context.Context, table string, key string, val
 	data := encodeValues(values)
 	db.recordKey(k)
 
-	_, err := db.lfu.Set(k, data, true)
+	_, err := db.lfu.Set(k, data, true, true)
 	return err
 }
 
@@ -183,7 +183,7 @@ func (db *pebbleLFUDB) Read(ctx context.Context, table string, key string, field
 
 	db.recordKey(k)
 
-	val, found, err := db.lfu.Get(k)
+	val, found, err := db.lfu.Get(k, true)
 	if err != nil {
 		return nil, err
 	}

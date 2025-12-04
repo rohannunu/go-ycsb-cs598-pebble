@@ -1,0 +1,52 @@
+Using request distribution 'zipfian' a keyrange of [0 25000000]
+>>> registering pebble DeToX wrapper... <<<
+2025/12/04 03:15:31 [JOB 1] WAL file /tmp/pebble/174762.log with log number 174762 stopped reading at offset: 0; replayed 0 keys in 0 batches
+***************** properties *****************
+"readproportion"="0.5"
+"workload"="core"
+"threadcount"="16"
+"operationcount"="3000000"
+"pebble.dir"="/tmp/pebble"
+"dropdata"="false"
+"updateproportion"="0.5"
+"requestdistribution"="zipfian"
+"recordcount"="25000000"
+"readallfields"="true"
+"dotransactions"="true"
+"fieldlength"="200"
+"fieldcount"="10"
+"scanproportion"="0"
+"pebble.detox_capacity"="2500000"
+"insertproportion"="0"
+"command"="run"
+"table"="usertable"
+**********************************************
+READ   - Takes(s): 10.0, Count: 396668, OPS: 39665.5, Avg(us): 278, Min(us): 2, Max(us): 15391, 50th(us): 161, 90th(us): 717, 95th(us): 955, 99th(us): 1528, 99.9th(us): 2639, 99.99th(us): 11063
+TOTAL  - Takes(s): 10.0, Count: 791995, OPS: 79170.6, Avg(us): 185, Min(us): 1, Max(us): 15391, 50th(us): 46, 90th(us): 547, 95th(us): 782, 99th(us): 1353, 99.9th(us): 2395, 99.99th(us): 7915
+UPDATE - Takes(s): 10.0, Count: 395327, OPS: 39522.3, Avg(us): 92, Min(us): 1, Max(us): 9751, 50th(us): 14, 90th(us): 271, 95th(us): 455, 99th(us): 996, 99.9th(us): 2006, 99.99th(us): 4291
+READ   - Takes(s): 20.0, Count: 773542, OPS: 38676.4, Avg(us): 275, Min(us): 2, Max(us): 17871, 50th(us): 159, 90th(us): 708, 95th(us): 939, 99th(us): 1496, 99.9th(us): 2607, 99.99th(us): 9719
+TOTAL  - Takes(s): 20.0, Count: 1546291, OPS: 77299.9, Avg(us): 190, Min(us): 1, Max(us): 17871, 50th(us): 53, 90th(us): 554, 95th(us): 781, 99th(us): 1338, 99.9th(us): 2453, 99.99th(us): 6335
+UPDATE - Takes(s): 20.0, Count: 772749, OPS: 38632.2, Avg(us): 105, Min(us): 1, Max(us): 9751, 50th(us): 19, 90th(us): 313, 95th(us): 501, 99th(us): 1015, 99.9th(us): 2163, 99.99th(us): 5351
+READ   - Takes(s): 30.0, Count: 1108384, OPS: 36945.8, Avg(us): 280, Min(us): 2, Max(us): 20399, 50th(us): 160, 90th(us): 727, 95th(us): 969, 99th(us): 1549, 99.9th(us): 2681, 99.99th(us): 7487
+TOTAL  - Takes(s): 30.0, Count: 2217207, OPS: 73898.9, Avg(us): 199, Min(us): 1, Max(us): 20399, 50th(us): 54, 90th(us): 580, 95th(us): 820, 99th(us): 1411, 99.9th(us): 2555, 99.99th(us): 6287
+UPDATE - Takes(s): 30.0, Count: 1108823, OPS: 36957.9, Avg(us): 117, Min(us): 1, Max(us): 11743, 50th(us): 21, 90th(us): 349, 95th(us): 564, 99th(us): 1153, 99.9th(us): 2391, 99.99th(us): 5299
+**********************************************
+Run finished, takes 39.195463317s
+READ   - Takes(s): 39.2, Count: 1499348, OPS: 38254.3, Avg(us): 270, Min(us): 2, Max(us): 20399, 50th(us): 154, 90th(us): 703, 95th(us): 934, 99th(us): 1486, 99.9th(us): 2525, 99.99th(us): 6707
+TOTAL  - Takes(s): 39.2, Count: 3000000, OPS: 76537.4, Avg(us): 191, Min(us): 1, Max(us): 20399, 50th(us): 52, 90th(us): 557, 95th(us): 785, 99th(us): 1343, 99.9th(us): 2389, 99.99th(us): 5567
+UPDATE - Takes(s): 39.2, Count: 1500652, OPS: 38285.8, Avg(us): 112, Min(us): 1, Max(us): 11743, 50th(us): 21, 90th(us): 336, 95th(us): 532, 99th(us): 1065, 99.9th(us): 2165, 99.99th(us): 4727
+=== DeToX Cache Stats ===
+  Hits:       1483924
+  Misses:     758007
+  Hit Rate:   66.19%
+  Admissions: 1516076
+  Evictions:  0
+  Prefetches:  1499348
+  Transactions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 3000000
+  Unique keys:        1516074
+  Repeated accesses:  1483926
+  Repeat ratio:       49.46%
+=======================

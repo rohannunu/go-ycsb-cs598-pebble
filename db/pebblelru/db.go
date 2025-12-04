@@ -171,7 +171,7 @@ func (db *pebbleLRUDB) Read(ctx context.Context, table string, key string, field
 
 	db.recordKey(k)
 
-	val, found, err := db.lru.Get(k)
+	val, found, err := db.lru.Get(k, true)
 	if err != nil {
 		return nil, err
 	}
@@ -205,7 +205,7 @@ func (db *pebbleLRUDB) Insert(ctx context.Context, table string, key string, val
 	data := encodeValues(values)
 	db.recordKey(k)
 
-	_, err := db.lru.Set(k, data, true /* to_cache */)
+	_, err := db.lru.Set(k, data, true /* to_cache */, true /*async*/)
 	return err
 }
 

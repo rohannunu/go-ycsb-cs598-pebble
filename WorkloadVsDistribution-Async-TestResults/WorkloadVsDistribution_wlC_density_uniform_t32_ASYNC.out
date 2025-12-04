@@ -1,0 +1,160 @@
+Using request distribution 'uniform' a keyrange of [0 24999999]
+>>> registering pebble DensityCache wrapper... <<<
+2025/12/04 02:02:31 [JOB 1] WAL file /tmp/pebble/168434.log with log number 168434 stopped reading at offset: 3668277; replayed 4720 keys in 4720 batches
+***************** properties *****************
+"operationcount"="3000000"
+"command"="run"
+"recordcount"="25000000"
+"table"="usertable"
+"pebble.dir"="/tmp/pebble"
+"requestdistribution"="uniform"
+"readallfields"="true"
+"threadcount"="32"
+"scanproportion"="0"
+"dotransactions"="true"
+"dropdata"="false"
+"updateproportion"="0"
+"readproportion"="1"
+"insertproportion"="0"
+"fieldcount"="10"
+"workload"="core"
+"fieldlength"="200"
+"pebble.density_capacity"="2500000"
+**********************************************
+READ   - Takes(s): 10.0, Count: 263059, OPS: 26304.1, Avg(us): 1210, Min(us): 4, Max(us): 19503, 50th(us): 1011, 90th(us): 2437, 95th(us): 2969, 99th(us): 4215, 99.9th(us): 6443, 99.99th(us): 11119
+TOTAL  - Takes(s): 10.0, Count: 263059, OPS: 26307.2, Avg(us): 1210, Min(us): 4, Max(us): 19503, 50th(us): 1011, 90th(us): 2437, 95th(us): 2969, 99th(us): 4215, 99.9th(us): 6443, 99.99th(us): 11119
+READ   - Takes(s): 20.0, Count: 539517, OPS: 26975.7, Avg(us): 1179, Min(us): 4, Max(us): 28959, 50th(us): 985, 90th(us): 2385, 95th(us): 2897, 99th(us): 4049, 99.9th(us): 5995, 99.99th(us): 13359
+TOTAL  - Takes(s): 20.0, Count: 539517, OPS: 26976.8, Avg(us): 1179, Min(us): 4, Max(us): 28959, 50th(us): 985, 90th(us): 2385, 95th(us): 2897, 99th(us): 4049, 99.9th(us): 5995, 99.99th(us): 13359
+READ   - Takes(s): 30.0, Count: 825655, OPS: 27522.4, Avg(us): 1156, Min(us): 4, Max(us): 28959, 50th(us): 962, 90th(us): 2347, 95th(us): 2855, 99th(us): 3989, 99.9th(us): 5819, 99.99th(us): 12591
+TOTAL  - Takes(s): 30.0, Count: 825655, OPS: 27522.9, Avg(us): 1156, Min(us): 4, Max(us): 28959, 50th(us): 962, 90th(us): 2347, 95th(us): 2855, 99th(us): 3989, 99.9th(us): 5819, 99.99th(us): 12591
+READ   - Takes(s): 40.0, Count: 1093177, OPS: 27329.5, Avg(us): 1164, Min(us): 4, Max(us): 28959, 50th(us): 973, 90th(us): 2363, 95th(us): 2873, 99th(us): 4003, 99.9th(us): 5791, 99.99th(us): 11847
+TOTAL  - Takes(s): 40.0, Count: 1093177, OPS: 27330.1, Avg(us): 1164, Min(us): 4, Max(us): 28959, 50th(us): 973, 90th(us): 2363, 95th(us): 2873, 99th(us): 4003, 99.9th(us): 5791, 99.99th(us): 11847
+READ   - Takes(s): 50.0, Count: 1386252, OPS: 27725.2, Avg(us): 1147, Min(us): 4, Max(us): 28959, 50th(us): 956, 90th(us): 2337, 95th(us): 2845, 99th(us): 3963, 99.9th(us): 5703, 99.99th(us): 12919
+TOTAL  - Takes(s): 50.0, Count: 1386252, OPS: 27724.6, Avg(us): 1147, Min(us): 4, Max(us): 28959, 50th(us): 956, 90th(us): 2337, 95th(us): 2845, 99th(us): 3963, 99.9th(us): 5703, 99.99th(us): 12919
+READ   - Takes(s): 60.0, Count: 1685269, OPS: 28087.8, Avg(us): 1132, Min(us): 4, Max(us): 28959, 50th(us): 941, 90th(us): 2319, 95th(us): 2825, 99th(us): 3939, 99.9th(us): 5635, 99.99th(us): 12015
+TOTAL  - Takes(s): 60.0, Count: 1685269, OPS: 28088.2, Avg(us): 1132, Min(us): 4, Max(us): 28959, 50th(us): 941, 90th(us): 2319, 95th(us): 2825, 99th(us): 3939, 99.9th(us): 5635, 99.99th(us): 12015
+READ   - Takes(s): 70.0, Count: 1933058, OPS: 27615.1, Avg(us): 1152, Min(us): 4, Max(us): 40095, 50th(us): 955, 90th(us): 2363, 95th(us): 2883, 99th(us): 4039, 99.9th(us): 5871, 99.99th(us): 15639
+TOTAL  - Takes(s): 70.0, Count: 1933058, OPS: 27614.5, Avg(us): 1152, Min(us): 4, Max(us): 40095, 50th(us): 955, 90th(us): 2363, 95th(us): 2883, 99th(us): 4039, 99.9th(us): 5871, 99.99th(us): 15639
+READ   - Takes(s): 80.0, Count: 2202584, OPS: 27532.3, Avg(us): 1155, Min(us): 4, Max(us): 40095, 50th(us): 957, 90th(us): 2377, 95th(us): 2899, 99th(us): 4065, 99.9th(us): 5927, 99.99th(us): 15935
+TOTAL  - Takes(s): 80.0, Count: 2202584, OPS: 27532.6, Avg(us): 1155, Min(us): 4, Max(us): 40095, 50th(us): 957, 90th(us): 2377, 95th(us): 2899, 99th(us): 4065, 99.9th(us): 5927, 99.99th(us): 15935
+READ   - Takes(s): 90.0, Count: 2511218, OPS: 27902.7, Avg(us): 1140, Min(us): 4, Max(us): 40095, 50th(us): 942, 90th(us): 2355, 95th(us): 2875, 99th(us): 4033, 99.9th(us): 5875, 99.99th(us): 15391
+TOTAL  - Takes(s): 90.0, Count: 2511218, OPS: 27902.5, Avg(us): 1140, Min(us): 4, Max(us): 40095, 50th(us): 942, 90th(us): 2355, 95th(us): 2875, 99th(us): 4033, 99.9th(us): 5875, 99.99th(us): 15391
+READ   - Takes(s): 100.0, Count: 2634361, OPS: 26342.3, Avg(us): 1201, Min(us): 4, Max(us): 5529599, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4025, 99.9th(us): 5879, 99.99th(us): 16143
+TOTAL  - Takes(s): 100.0, Count: 2634361, OPS: 26343.1, Avg(us): 1201, Min(us): 4, Max(us): 5529599, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4025, 99.9th(us): 5879, 99.99th(us): 16143
+READ   - Takes(s): 110.1, Count: 2634397, OPS: 23926.4, Avg(us): 1324, Min(us): 4, Max(us): 10174463, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4025, 99.9th(us): 5891, 99.99th(us): 16895
+TOTAL  - Takes(s): 110.1, Count: 2634397, OPS: 23926.6, Avg(us): 1324, Min(us): 4, Max(us): 10174463, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4025, 99.9th(us): 5891, 99.99th(us): 16895
+READ   - Takes(s): 120.0, Count: 2634441, OPS: 21953.3, Avg(us): 1385, Min(us): 4, Max(us): 10174463, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4027, 99.9th(us): 5907, 99.99th(us): 17871
+TOTAL  - Takes(s): 120.0, Count: 2634441, OPS: 21952.8, Avg(us): 1385, Min(us): 4, Max(us): 10174463, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4027, 99.9th(us): 5907, 99.99th(us): 17871
+READ   - Takes(s): 130.0, Count: 2634519, OPS: 20265.3, Avg(us): 1544, Min(us): 4, Max(us): 10174463, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4029, 99.9th(us): 5935, 99.99th(us): 20207
+TOTAL  - Takes(s): 130.0, Count: 2634519, OPS: 20264.8, Avg(us): 1544, Min(us): 4, Max(us): 10174463, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4029, 99.9th(us): 5935, 99.99th(us): 20207
+READ   - Takes(s): 140.0, Count: 2634571, OPS: 18818.1, Avg(us): 1670, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4029, 99.9th(us): 5959, 99.99th(us): 23743
+TOTAL  - Takes(s): 140.0, Count: 2634571, OPS: 18818.3, Avg(us): 1670, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4029, 99.9th(us): 5959, 99.99th(us): 23743
+READ   - Takes(s): 150.0, Count: 2634609, OPS: 17563.5, Avg(us): 1762, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4031, 99.9th(us): 5975, 99.99th(us): 28959
+TOTAL  - Takes(s): 150.0, Count: 2634609, OPS: 17563.8, Avg(us): 1762, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2347, 95th(us): 2867, 99th(us): 4031, 99.9th(us): 5975, 99.99th(us): 28959
+READ   - Takes(s): 160.0, Count: 2634697, OPS: 16465.8, Avg(us): 1924, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4033, 99.9th(us): 6007, 99.99th(us): 4689919
+TOTAL  - Takes(s): 160.0, Count: 2634697, OPS: 16465.7, Avg(us): 1924, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4033, 99.9th(us): 6007, 99.99th(us): 4689919
+READ   - Takes(s): 170.0, Count: 2634742, OPS: 15498.3, Avg(us): 2004, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4035, 99.9th(us): 6031, 99.99th(us): 5529599
+TOTAL  - Takes(s): 170.0, Count: 2634742, OPS: 15498.0, Avg(us): 2004, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4035, 99.9th(us): 6031, 99.99th(us): 5529599
+READ   - Takes(s): 180.0, Count: 2634788, OPS: 14637.5, Avg(us): 2119, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4035, 99.9th(us): 6047, 99.99th(us): 6184959
+TOTAL  - Takes(s): 180.0, Count: 2634788, OPS: 14637.3, Avg(us): 2119, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4035, 99.9th(us): 6047, 99.99th(us): 6184959
+READ   - Takes(s): 190.0, Count: 2634873, OPS: 13867.6, Avg(us): 2287, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4037, 99.9th(us): 6083, 99.99th(us): 6676479
+TOTAL  - Takes(s): 190.0, Count: 2634873, OPS: 13867.4, Avg(us): 2287, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4037, 99.9th(us): 6083, 99.99th(us): 6676479
+READ   - Takes(s): 200.0, Count: 2634937, OPS: 13173.6, Avg(us): 2386, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4039, 99.9th(us): 6123, 99.99th(us): 6737919
+TOTAL  - Takes(s): 200.0, Count: 2634937, OPS: 13174.2, Avg(us): 2386, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4039, 99.9th(us): 6123, 99.99th(us): 6737919
+READ   - Takes(s): 210.0, Count: 2635027, OPS: 12546.8, Avg(us): 2543, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4041, 99.9th(us): 6167, 99.99th(us): 6959103
+TOTAL  - Takes(s): 210.0, Count: 2635027, OPS: 12546.7, Avg(us): 2543, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4041, 99.9th(us): 6167, 99.99th(us): 6959103
+READ   - Takes(s): 220.0, Count: 2635033, OPS: 11977.3, Avg(us): 2556, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4041, 99.9th(us): 6171, 99.99th(us): 6959103
+TOTAL  - Takes(s): 220.0, Count: 2635033, OPS: 11977.2, Avg(us): 2556, Min(us): 4, Max(us): 10321919, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4041, 99.9th(us): 6171, 99.99th(us): 6959103
+READ   - Takes(s): 230.0, Count: 2635105, OPS: 11456.3, Avg(us): 2765, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4043, 99.9th(us): 6215, 99.99th(us): 7208959
+TOTAL  - Takes(s): 230.0, Count: 2635105, OPS: 11456.4, Avg(us): 2765, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2869, 99th(us): 4043, 99.9th(us): 6215, 99.99th(us): 7208959
+READ   - Takes(s): 240.0, Count: 2635154, OPS: 10979.7, Avg(us): 2860, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4043, 99.9th(us): 6239, 99.99th(us): 7319551
+TOTAL  - Takes(s): 240.0, Count: 2635154, OPS: 10979.6, Avg(us): 2860, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4043, 99.9th(us): 6239, 99.99th(us): 7319551
+READ   - Takes(s): 250.0, Count: 2635248, OPS: 10540.8, Avg(us): 3024, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4045, 99.9th(us): 6299, 99.99th(us): 7323647
+TOTAL  - Takes(s): 250.0, Count: 2635248, OPS: 10540.9, Avg(us): 3024, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4045, 99.9th(us): 6299, 99.99th(us): 7323647
+READ   - Takes(s): 260.0, Count: 2635294, OPS: 10135.7, Avg(us): 3114, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4047, 99.9th(us): 6323, 99.99th(us): 7344127
+TOTAL  - Takes(s): 260.0, Count: 2635294, OPS: 10135.7, Avg(us): 3114, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4047, 99.9th(us): 6323, 99.99th(us): 7344127
+READ   - Takes(s): 270.0, Count: 2635344, OPS: 9760.4, Avg(us): 3196, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4049, 99.9th(us): 6359, 99.99th(us): 7344127
+TOTAL  - Takes(s): 270.0, Count: 2635344, OPS: 9760.5, Avg(us): 3196, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4049, 99.9th(us): 6359, 99.99th(us): 7344127
+READ   - Takes(s): 280.0, Count: 2635421, OPS: 9412.0, Avg(us): 3388, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4049, 99.9th(us): 6415, 99.99th(us): 7426047
+TOTAL  - Takes(s): 280.0, Count: 2635421, OPS: 9412.1, Avg(us): 3388, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4049, 99.9th(us): 6415, 99.99th(us): 7426047
+READ   - Takes(s): 290.0, Count: 2635479, OPS: 9087.7, Avg(us): 3465, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4051, 99.9th(us): 6443, 99.99th(us): 7426047
+TOTAL  - Takes(s): 290.0, Count: 2635479, OPS: 9087.8, Avg(us): 3465, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4051, 99.9th(us): 6443, 99.99th(us): 7426047
+READ   - Takes(s): 300.0, Count: 2635571, OPS: 8785.2, Avg(us): 3616, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4053, 99.9th(us): 6519, 99.99th(us): 7426047
+TOTAL  - Takes(s): 300.0, Count: 2635571, OPS: 8785.1, Avg(us): 3616, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2349, 95th(us): 2871, 99th(us): 4053, 99.9th(us): 6519, 99.99th(us): 7426047
+READ   - Takes(s): 310.0, Count: 2635613, OPS: 8502.0, Avg(us): 3710, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4053, 99.9th(us): 6563, 99.99th(us): 7446527
+TOTAL  - Takes(s): 310.0, Count: 2635613, OPS: 8502.0, Avg(us): 3710, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4053, 99.9th(us): 6563, 99.99th(us): 7446527
+READ   - Takes(s): 320.0, Count: 2635693, OPS: 8236.1, Avg(us): 3853, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4055, 99.9th(us): 6635, 99.99th(us): 7446527
+TOTAL  - Takes(s): 320.0, Count: 2635693, OPS: 8236.1, Avg(us): 3853, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4055, 99.9th(us): 6635, 99.99th(us): 7446527
+READ   - Takes(s): 330.0, Count: 2635790, OPS: 7987.1, Avg(us): 3998, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4057, 99.9th(us): 6719, 99.99th(us): 7446527
+TOTAL  - Takes(s): 330.0, Count: 2635790, OPS: 7987.2, Avg(us): 3998, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4057, 99.9th(us): 6719, 99.99th(us): 7446527
+READ   - Takes(s): 340.0, Count: 2635796, OPS: 7752.2, Avg(us): 4011, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4059, 99.9th(us): 6727, 99.99th(us): 7491583
+TOTAL  - Takes(s): 340.0, Count: 2635796, OPS: 7752.3, Avg(us): 4011, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4059, 99.9th(us): 6727, 99.99th(us): 7491583
+READ   - Takes(s): 350.0, Count: 2635882, OPS: 7531.0, Avg(us): 4202, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4061, 99.9th(us): 6819, 99.99th(us): 7770111
+TOTAL  - Takes(s): 350.0, Count: 2635882, OPS: 7531.0, Avg(us): 4202, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4061, 99.9th(us): 6819, 99.99th(us): 7770111
+READ   - Takes(s): 360.0, Count: 2635940, OPS: 7322.0, Avg(us): 4317, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4061, 99.9th(us): 6895, 99.99th(us): 7970815
+TOTAL  - Takes(s): 360.0, Count: 2635940, OPS: 7322.0, Avg(us): 4317, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4061, 99.9th(us): 6895, 99.99th(us): 7970815
+READ   - Takes(s): 370.0, Count: 2635985, OPS: 7124.2, Avg(us): 4395, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4063, 99.9th(us): 6987, 99.99th(us): 7970815
+TOTAL  - Takes(s): 370.0, Count: 2635985, OPS: 7124.2, Avg(us): 4395, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2873, 99th(us): 4063, 99.9th(us): 6987, 99.99th(us): 7970815
+READ   - Takes(s): 380.0, Count: 2636064, OPS: 6936.7, Avg(us): 4567, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4065, 99.9th(us): 7119, 99.99th(us): 8101887
+TOTAL  - Takes(s): 380.0, Count: 2636064, OPS: 6936.7, Avg(us): 4567, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4065, 99.9th(us): 7119, 99.99th(us): 8101887
+READ   - Takes(s): 390.0, Count: 2636153, OPS: 6759.3, Avg(us): 4714, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4067, 99.9th(us): 7247, 99.99th(us): 8101887
+TOTAL  - Takes(s): 390.0, Count: 2636153, OPS: 6759.3, Avg(us): 4714, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4067, 99.9th(us): 7247, 99.99th(us): 8101887
+READ   - Takes(s): 400.0, Count: 2636244, OPS: 6590.5, Avg(us): 4774, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4069, 99.9th(us): 7503, 99.99th(us): 8101887
+TOTAL  - Takes(s): 400.0, Count: 2636244, OPS: 6590.6, Avg(us): 4774, Min(us): 4, Max(us): 11862015, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4069, 99.9th(us): 7503, 99.99th(us): 8101887
+READ   - Takes(s): 410.0, Count: 2636300, OPS: 6430.0, Avg(us): 4931, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4069, 99.9th(us): 7603, 99.99th(us): 8155135
+TOTAL  - Takes(s): 410.0, Count: 2636300, OPS: 6430.0, Avg(us): 4931, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4069, 99.9th(us): 7603, 99.99th(us): 8155135
+READ   - Takes(s): 420.0, Count: 2636387, OPS: 6277.1, Avg(us): 5088, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4071, 99.9th(us): 7815, 99.99th(us): 8155135
+TOTAL  - Takes(s): 420.0, Count: 2636387, OPS: 6277.0, Avg(us): 5088, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4071, 99.9th(us): 7815, 99.99th(us): 8155135
+READ   - Takes(s): 430.0, Count: 2636393, OPS: 6131.1, Avg(us): 5100, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4071, 99.9th(us): 7831, 99.99th(us): 8155135
+TOTAL  - Takes(s): 430.0, Count: 2636393, OPS: 6131.1, Avg(us): 5100, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4071, 99.9th(us): 7831, 99.99th(us): 8155135
+READ   - Takes(s): 440.0, Count: 2636432, OPS: 5991.9, Avg(us): 5235, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4073, 99.9th(us): 8007, 99.99th(us): 8220671
+TOTAL  - Takes(s): 440.0, Count: 2636432, OPS: 5991.8, Avg(us): 5235, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2351, 95th(us): 2875, 99th(us): 4073, 99.9th(us): 8007, 99.99th(us): 8220671
+READ   - Takes(s): 450.0, Count: 2636504, OPS: 5858.9, Avg(us): 5419, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2353, 95th(us): 2877, 99th(us): 4075, 99.9th(us): 8327, 99.99th(us): 8658943
+TOTAL  - Takes(s): 450.0, Count: 2636504, OPS: 5858.8, Avg(us): 5419, Min(us): 4, Max(us): 13393919, 50th(us): 936, 90th(us): 2353, 95th(us): 2877, 99th(us): 4075, 99.9th(us): 8327, 99.99th(us): 8658943
+READ   - Takes(s): 460.0, Count: 2636581, OPS: 5731.7, Avg(us): 5498, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4077, 99.9th(us): 8767, 99.99th(us): 8658943
+TOTAL  - Takes(s): 460.0, Count: 2636581, OPS: 5731.6, Avg(us): 5498, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4077, 99.9th(us): 8767, 99.99th(us): 8658943
+READ   - Takes(s): 470.0, Count: 2636689, OPS: 5609.9, Avg(us): 5696, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4081, 99.9th(us): 9367, 99.99th(us): 9388031
+TOTAL  - Takes(s): 470.0, Count: 2636689, OPS: 5610.0, Avg(us): 5696, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4081, 99.9th(us): 9367, 99.99th(us): 9388031
+READ   - Takes(s): 480.0, Count: 2636741, OPS: 5493.1, Avg(us): 5813, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4083, 99.9th(us): 9895, 99.99th(us): 9510911
+TOTAL  - Takes(s): 480.0, Count: 2636741, OPS: 5493.2, Avg(us): 5813, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4083, 99.9th(us): 9895, 99.99th(us): 9510911
+READ   - Takes(s): 490.0, Count: 2636796, OPS: 5381.2, Avg(us): 5910, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4083, 99.9th(us): 10375, 99.99th(us): 9510911
+TOTAL  - Takes(s): 490.0, Count: 2636796, OPS: 5381.2, Avg(us): 5910, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4083, 99.9th(us): 10375, 99.99th(us): 9510911
+READ   - Takes(s): 500.0, Count: 2636844, OPS: 5273.7, Avg(us): 6036, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4085, 99.9th(us): 10927, 99.99th(us): 9543679
+TOTAL  - Takes(s): 500.0, Count: 2636844, OPS: 5273.7, Avg(us): 6036, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2877, 99th(us): 4085, 99.9th(us): 10927, 99.99th(us): 9543679
+READ   - Takes(s): 510.0, Count: 2636964, OPS: 5170.5, Avg(us): 6171, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4087, 99.9th(us): 12879, 99.99th(us): 9543679
+TOTAL  - Takes(s): 510.0, Count: 2636964, OPS: 5170.5, Avg(us): 6171, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4087, 99.9th(us): 12879, 99.99th(us): 9543679
+READ   - Takes(s): 520.0, Count: 2636972, OPS: 5071.1, Avg(us): 6190, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4087, 99.9th(us): 13111, 99.99th(us): 9543679
+TOTAL  - Takes(s): 520.0, Count: 2636972, OPS: 5071.0, Avg(us): 6190, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4087, 99.9th(us): 13111, 99.99th(us): 9543679
+READ   - Takes(s): 530.0, Count: 2637062, OPS: 4975.6, Avg(us): 6370, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4089, 99.9th(us): 14567, 99.99th(us): 9666559
+TOTAL  - Takes(s): 530.0, Count: 2637062, OPS: 4975.6, Avg(us): 6370, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4089, 99.9th(us): 14567, 99.99th(us): 9666559
+READ   - Takes(s): 540.0, Count: 2637106, OPS: 4883.5, Avg(us): 6503, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4091, 99.9th(us): 15471, 99.99th(us): 10133503
+TOTAL  - Takes(s): 540.0, Count: 2637106, OPS: 4883.5, Avg(us): 6503, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4091, 99.9th(us): 15471, 99.99th(us): 10133503
+READ   - Takes(s): 550.0, Count: 2637160, OPS: 4794.8, Avg(us): 6621, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4091, 99.9th(us): 16543, 99.99th(us): 10133503
+TOTAL  - Takes(s): 550.0, Count: 2637160, OPS: 4794.8, Avg(us): 6621, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4091, 99.9th(us): 16543, 99.99th(us): 10133503
+READ   - Takes(s): 560.0, Count: 2637246, OPS: 4709.4, Avg(us): 6773, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4093, 99.9th(us): 18031, 99.99th(us): 10133503
+TOTAL  - Takes(s): 560.0, Count: 2637246, OPS: 4709.3, Avg(us): 6773, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2353, 95th(us): 2879, 99th(us): 4093, 99.9th(us): 18031, 99.99th(us): 10133503
+READ   - Takes(s): 570.0, Count: 2637329, OPS: 4626.9, Avg(us): 6895, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2355, 95th(us): 2879, 99th(us): 4099, 99.9th(us): 20191, 99.99th(us): 10166271
+TOTAL  - Takes(s): 570.0, Count: 2637329, OPS: 4626.8, Avg(us): 6895, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2355, 95th(us): 2879, 99th(us): 4099, 99.9th(us): 20191, 99.99th(us): 10166271
+READ   - Takes(s): 580.0, Count: 2637336, OPS: 4547.1, Avg(us): 6916, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2355, 95th(us): 2879, 99th(us): 4099, 99.9th(us): 20239, 99.99th(us): 10166271
+TOTAL  - Takes(s): 580.0, Count: 2637336, OPS: 4547.1, Avg(us): 6916, Min(us): 4, Max(us): 13393919, 50th(us): 937, 90th(us): 2355, 95th(us): 2879, 99th(us): 4099, 99.9th(us): 20239, 99.99th(us): 10166271
+READ   - Takes(s): 590.0, Count: 2637387, OPS: 4470.1, Avg(us): 7084, Min(us): 4, Max(us): 25214975, 50th(us): 937, 90th(us): 2355, 95th(us): 2881, 99th(us): 4099, 99.9th(us): 23983, 99.99th(us): 10321919
+TOTAL  - Takes(s): 590.0, Count: 2637387, OPS: 4470.1, Avg(us): 7084, Min(us): 4, Max(us): 25214975, 50th(us): 937, 90th(us): 2355, 95th(us): 2881, 99th(us): 4099, 99.9th(us): 23983, 99.99th(us): 10321919
+
+Got signal [interrupt] to exit.
+**********************************************
+Run finished, takes 10m2.392666031s
+READ   - Takes(s): 602.4, Count: 2637464, OPS: 4378.3, Avg(us): 7302, Min(us): 4, Max(us): 25214975, 50th(us): 937, 90th(us): 2355, 95th(us): 2881, 99th(us): 4103, 99.9th(us): 30975, 99.99th(us): 10379263
+TOTAL  - Takes(s): 602.4, Count: 2637464, OPS: 4378.3, Avg(us): 7302, Min(us): 4, Max(us): 25214975, 50th(us): 937, 90th(us): 2355, 95th(us): 2881, 99th(us): 4103, 99.9th(us): 30975, 99.99th(us): 10379263
+=== Density Cache Stats ===
+  Hits:       134642
+  Misses:     2502822
+  Hit Rate:   5.10%
+  Admissions: 2501964
+  Evictions:  1964
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 2637464
+  Unique keys:        2502817
+  Repeated accesses:  134647
+  Repeat ratio:       5.11%
+=======================

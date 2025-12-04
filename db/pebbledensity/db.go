@@ -172,7 +172,7 @@ func (db *pebbleDensityDB) Insert(ctx context.Context, table string, key string,
 	data := encodeValues(values)
 	db.recordKey(k)
 
-	_, err := db.density.Set(k, data, true)
+	_, err := db.density.Set(k, data, true, true)
 	return err
 }
 
@@ -182,7 +182,7 @@ func (db *pebbleDensityDB) Read(ctx context.Context, table string, key string, f
 
 	db.recordKey(k)
 
-	val, found, err := db.density.Get(k)
+	val, found, err := db.density.Get(k, true)
 	if err != nil {
 		return nil, err
 	}

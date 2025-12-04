@@ -1,0 +1,57 @@
+Using request distribution 'hotspot' a keyrange of [0 24999999]
+>>> registering pebble DeToX wrapper... <<<
+2025/12/04 00:02:19 [JOB 1] WAL file /tmp/pebble/160367.log with log number 160367 stopped reading at offset: 0; replayed 0 keys in 0 batches
+***************** properties *****************
+"fieldlength"="200"
+"threadcount"="32"
+"hotspotdatafraction"="0.2"
+"pebble.detox_capacity"="2500000"
+"dropdata"="false"
+"readallfields"="true"
+"scanproportion"="0"
+"fieldcount"="10"
+"workload"="core"
+"readproportion"="0.5"
+"requestdistribution"="hotspot"
+"operationcount"="3000000"
+"hotspotopnfraction"="0.8"
+"dotransactions"="true"
+"table"="usertable"
+"pebble.dir"="/tmp/pebble"
+"insertproportion"="0"
+"updateproportion"="0.5"
+"command"="run"
+"recordcount"="25000000"
+**********************************************
+READ   - Takes(s): 10.0, Count: 370147, OPS: 37013.7, Avg(us): 697, Min(us): 4, Max(us): 31999, 50th(us): 495, 90th(us): 1505, 95th(us): 1925, 99th(us): 2939, 99.9th(us): 5795, 99.99th(us): 15591
+TOTAL  - Takes(s): 10.0, Count: 740544, OPS: 74046.7, Avg(us): 417, Min(us): 2, Max(us): 31999, 50th(us): 173, 90th(us): 1179, 95th(us): 1590, 99th(us): 2599, 99.9th(us): 5187, 99.99th(us): 14335
+UPDATE - Takes(s): 10.0, Count: 370397, OPS: 37034.3, Avg(us): 138, Min(us): 2, Max(us): 19423, 50th(us): 17, 90th(us): 366, 95th(us): 719, 99th(us): 1789, 99.9th(us): 4027, 99.99th(us): 11599
+READ   - Takes(s): 20.0, Count: 757264, OPS: 37862.3, Avg(us): 667, Min(us): 4, Max(us): 31999, 50th(us): 473, 90th(us): 1462, 95th(us): 1868, 99th(us): 2819, 99.9th(us): 4807, 99.99th(us): 13727
+TOTAL  - Takes(s): 20.0, Count: 1514829, OPS: 75738.0, Avg(us): 407, Min(us): 2, Max(us): 31999, 50th(us): 173, 90th(us): 1152, 95th(us): 1553, 99th(us): 2517, 99.9th(us): 4343, 99.99th(us): 11583
+UPDATE - Takes(s): 20.0, Count: 757565, OPS: 37875.4, Avg(us): 148, Min(us): 2, Max(us): 19423, 50th(us): 20, 90th(us): 426, 95th(us): 778, 99th(us): 1801, 99.9th(us): 3569, 99.99th(us): 10175
+READ   - Takes(s): 30.0, Count: 1087170, OPS: 36236.1, Avg(us): 673, Min(us): 4, Max(us): 31999, 50th(us): 474, 90th(us): 1493, 95th(us): 1915, 99th(us): 2899, 99.9th(us): 4771, 99.99th(us): 13879
+TOTAL  - Takes(s): 30.0, Count: 2174367, OPS: 72475.1, Avg(us): 426, Min(us): 2, Max(us): 31999, 50th(us): 183, 90th(us): 1197, 95th(us): 1617, 99th(us): 2609, 99.9th(us): 4407, 99.99th(us): 12463
+UPDATE - Takes(s): 30.0, Count: 1087197, OPS: 36236.5, Avg(us): 179, Min(us): 2, Max(us): 31695, 50th(us): 22, 90th(us): 551, 95th(us): 968, 99th(us): 2026, 99.9th(us): 3761, 99.99th(us): 10743
+READ   - Takes(s): 40.0, Count: 1481438, OPS: 37036.0, Avg(us): 651, Min(us): 4, Max(us): 31999, 50th(us): 454, 90th(us): 1457, 95th(us): 1867, 99th(us): 2853, 99.9th(us): 4659, 99.99th(us): 12879
+TOTAL  - Takes(s): 40.0, Count: 2963087, OPS: 74073.5, Avg(us): 416, Min(us): 2, Max(us): 31999, 50th(us): 179, 90th(us): 1169, 95th(us): 1576, 99th(us): 2563, 99.9th(us): 4343, 99.99th(us): 11095
+UPDATE - Takes(s): 40.0, Count: 1481649, OPS: 37040.2, Avg(us): 181, Min(us): 2, Max(us): 31695, 50th(us): 26, 90th(us): 564, 95th(us): 960, 99th(us): 1970, 99.9th(us): 3761, 99.99th(us): 9943
+**********************************************
+Run finished, takes 40.436873951s
+READ   - Takes(s): 40.4, Count: 1500050, OPS: 37096.0, Avg(us): 649, Min(us): 4, Max(us): 31999, 50th(us): 451, 90th(us): 1453, 95th(us): 1863, 99th(us): 2851, 99.9th(us): 4667, 99.99th(us): 12815
+TOTAL  - Takes(s): 40.4, Count: 3000000, OPS: 74184.7, Avg(us): 415, Min(us): 2, Max(us): 31999, 50th(us): 178, 90th(us): 1165, 95th(us): 1571, 99th(us): 2559, 99.9th(us): 4343, 99.99th(us): 11071
+UPDATE - Takes(s): 40.4, Count: 1499950, OPS: 37092.9, Avg(us): 180, Min(us): 2, Max(us): 31695, 50th(us): 25, 90th(us): 559, 95th(us): 953, 99th(us): 1964, 99.9th(us): 3753, 99.99th(us): 9927
+=== DeToX Cache Stats ===
+  Hits:       503362
+  Misses:     1248268
+  Hit Rate:   28.74%
+  Admissions: 2496638
+  Evictions:  0
+  Prefetches:  1500050
+  Transactions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 3000000
+  Unique keys:        2496634
+  Repeated accesses:  503366
+  Repeat ratio:       16.78%
+=======================
