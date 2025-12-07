@@ -126,7 +126,7 @@ def parse_log_file(path):
 
 def compute_speedups(df):
     """
-    Add a 'speedup' column: total_ops(cache) / total_ops(no-cache)
+    Add 'speedup' column: total_ops(cache) / total_ops(no-cache)
     Baseline assumed cache in {'none', 'nocache', 'baseline'}.
     """
     df = df.copy()
@@ -152,6 +152,35 @@ def compute_speedups(df):
     return df
 
 
+def compute_latency_speedups(df):
+    """
+    Add 'latency_speedup' column:
+      latency_speedup = p99_latency(no-cache) / p99_latency(cache)
+    Using READ p99 latency. >1 => cache has lower p99 latency than baseline.
+    """
+    df = df.copy()
+    df["cache_norm"] = df["cache"].fillna("unknown").str.lower()
+
+    baseline_names = {"none", "nocache", "baseline"}
+    baseline_df = df[df["cache_norm"].isin(baseline_names)]
+
+    baseline_map = (
+        baseline_df
+        .set_index(["workload", "distribution"])["read_p99_us"]
+        .to_dict()
+    )
+
+    def get_lat_speedup(row):
+        key = (row["workload"], row["distribution"])
+        base_lat = baseline_map.get(key)
+        if base_lat is None or base_lat == 0 or row["read_p99_us"] is None:
+            return np.nan
+        return base_lat / row["read_p99_us"]
+
+    df["latency_speedup"] = df.apply(get_lat_speedup, axis=1)
+    return df
+
+
 def plot_heatmap_cache_vs_workload(df, outdir):
     data = (
         df
@@ -162,7 +191,7 @@ def plot_heatmap_cache_vs_workload(df, outdir):
     )
 
     if data.empty:
-        print("No data for heatmap.")
+        print("No data for heatmap (cache vs workload).")
         return
 
     pivot = data.pivot(index="cache", columns="workload", values="speedup")
@@ -171,14 +200,151 @@ def plot_heatmap_cache_vs_workload(df, outdir):
     im = plt.imshow(pivot.values, aspect="auto")
     plt.colorbar(im, label="Avg speedup vs no-cache")
 
-    plt.xticks(np.arange(len(pivot.columns)), pivot.columns)
-    plt.yticks(np.arange(len(pivot.index)), pivot.index)
+    caches = list(pivot.index)
+    workloads = list(pivot.columns)
 
-    plt.title("Cache vs Workload (avg speedup)")
+    plt.xticks(np.arange(len(workloads)), workloads)
+    plt.yticks(np.arange(len(caches)), caches)
+
+    # Add numeric labels inside each cell
+    for i, cache in enumerate(caches):
+        for j, wl in enumerate(workloads):
+            val = pivot.loc[cache, wl]
+            if not np.isnan(val):
+                plt.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=8)
+
+    plt.title("Cache vs Workload (throughput speedup)")
     plt.xlabel("Workload")
     plt.ylabel("Cache")
     plt.tight_layout()
     out_path = os.path.join(outdir, "heatmap_cache_vs_workload.png")
+    plt.savefig(out_path)
+    plt.close()
+    print(f"Saved {out_path}")
+
+
+def plot_heatmap_cache_vs_distribution(df, outdir):
+    """
+    Heatmap of avg throughput speedup for each (cache, distribution).
+    """
+    data = (
+        df
+        .dropna(subset=["speedup"])
+        .groupby(["cache", "distribution"])["speedup"]
+        .mean()
+        .reset_index()
+    )
+
+    if data.empty:
+        print("No data for heatmap (cache vs distribution).")
+        return
+
+    pivot = data.pivot(index="cache", columns="distribution", values="speedup")
+
+    plt.figure(figsize=(6, 4))
+    im = plt.imshow(pivot.values, aspect="auto")
+    plt.colorbar(im, label="Avg speedup vs no-cache")
+
+    caches = list(pivot.index)
+    dists = list(pivot.columns)
+
+    plt.xticks(np.arange(len(dists)), dists, rotation=15)
+    plt.yticks(np.arange(len(caches)), caches)
+
+    # Add numeric labels inside each cell
+    for i, cache in enumerate(caches):
+        for j, dist in enumerate(dists):
+            val = pivot.loc[cache, dist]
+            if not np.isnan(val):
+                plt.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=8)
+
+    plt.title("Cache vs Distribution (throughput speedup)")
+    plt.xlabel("Distribution")
+    plt.ylabel("Cache")
+    plt.tight_layout()
+    out_path = os.path.join(outdir, "heatmap_cache_vs_distribution.png")
+    plt.savefig(out_path)
+    plt.close()
+    print(f"Saved {out_path}")
+
+
+def plot_latency_heatmap_cache_vs_workload(df, outdir):
+    data = (
+        df
+        .dropna(subset=["latency_speedup"])
+        .groupby(["cache", "workload"])["latency_speedup"]
+        .mean()
+        .reset_index()
+    )
+
+    if data.empty:
+        print("No data for latency heatmap (cache vs workload).")
+        return
+
+    pivot = data.pivot(index="cache", columns="workload", values="latency_speedup")
+
+    plt.figure(figsize=(6, 4))
+    im = plt.imshow(pivot.values, aspect="auto")
+    plt.colorbar(im, label="Avg p99 latency speedup vs no-cache")
+
+    caches = list(pivot.index)
+    workloads = list(pivot.columns)
+
+    plt.xticks(np.arange(len(workloads)), workloads)
+    plt.yticks(np.arange(len(caches)), caches)
+
+    for i, cache in enumerate(caches):
+        for j, wl in enumerate(workloads):
+            val = pivot.loc[cache, wl]
+            if not np.isnan(val):
+                plt.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=8)
+
+    plt.title("Cache vs Workload (p99 latency speedup)")
+    plt.xlabel("Workload")
+    plt.ylabel("Cache")
+    plt.tight_layout()
+    out_path = os.path.join(outdir, "latency_heatmap_cache_vs_workload.png")
+    plt.savefig(out_path)
+    plt.close()
+    print(f"Saved {out_path}")
+
+
+def plot_latency_heatmap_cache_vs_distribution(df, outdir):
+    data = (
+        df
+        .dropna(subset=["latency_speedup"])
+        .groupby(["cache", "distribution"])["latency_speedup"]
+        .mean()
+        .reset_index()
+    )
+
+    if data.empty:
+        print("No data for latency heatmap (cache vs distribution).")
+        return
+
+    pivot = data.pivot(index="cache", columns="distribution", values="latency_speedup")
+
+    plt.figure(figsize=(6, 4))
+    im = plt.imshow(pivot.values, aspect="auto")
+    plt.colorbar(im, label="Avg p99 latency speedup vs no-cache")
+
+    caches = list(pivot.index)
+    dists = list(pivot.columns)
+
+    plt.xticks(np.arange(len(dists)), dists, rotation=15)
+    plt.yticks(np.arange(len(caches)), caches)
+
+    for i, cache in enumerate(caches):
+        for j, dist in enumerate(dists):
+            val = pivot.loc[cache, dist]
+            if not np.isnan(val):
+                plt.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=8)
+
+    plt.title("Cache vs Distribution (p99 latency speedup)")
+    plt.xlabel("Distribution")
+    plt.ylabel("Cache")
+    plt.tight_layout()
+    out_path = os.path.join(outdir, "latency_heatmap_cache_vs_distribution.png")
     plt.savefig(out_path)
     plt.close()
     print(f"Saved {out_path}")
@@ -198,9 +364,22 @@ def plot_overall_cache_speedup(df, outdir):
         return
 
     plt.figure(figsize=(6, 4))
-    plt.bar(data.index, data.values)
+    bars = plt.bar(data.index, data.values)
     plt.ylabel("Avg speedup vs no-cache")
-    plt.title("Overall Cache Performance")
+    plt.title("Overall Cache Performance (throughput)")
+
+    # Labels on bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            f"{height:.2f}",
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+
     plt.tight_layout()
     out_path = os.path.join(outdir, "overall_cache_speedup.png")
     plt.savefig(out_path)
@@ -222,9 +401,22 @@ def plot_win_counts(df, outdir):
     win_counts = winners.groupby("cache").size().sort_values(ascending=False)
 
     plt.figure(figsize=(6, 4))
-    plt.bar(win_counts.index, win_counts.values)
+    bars = plt.bar(win_counts.index, win_counts.values)
     plt.ylabel("# of (workload, dist) wins")
     plt.title("Win Count per Cache (by throughput)")
+
+    # Labels on bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            f"{int(height)}",
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+
     plt.tight_layout()
     out_path = os.path.join(outdir, "cache_win_counts.png")
     plt.savefig(out_path)
@@ -254,14 +446,133 @@ def plot_distribution_improvement(df, outdir):
     )
 
     plt.figure(figsize=(6, 4))
-    plt.bar(dist_improv.index, dist_improv.values)
+    bars = plt.bar(dist_improv.index, dist_improv.values)
     plt.ylabel("Avg speedup vs no-cache")
-    plt.title("Cache Benefit by Distribution")
+    plt.title("Cache Benefit by Distribution (throughput)")
+
+    # Labels on bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            f"{height:.2f}",
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+
     plt.tight_layout()
     out_path = os.path.join(outdir, "distribution_improvement.png")
     plt.savefig(out_path)
     plt.close()
     print(f"Saved {out_path}")
+
+
+def plot_best_cache_per_distribution(df, outdir):
+    """
+    For each distribution, find the cache (including baseline 'none')
+    with the highest average speedup vs no-cache, and plot it.
+    """
+    df_valid = df.dropna(subset=["speedup", "cache", "distribution"])
+
+    if df_valid.empty:
+        print("No valid data for best-cache-per-distribution plot.")
+        return
+
+    # Average speedup per (distribution, cache)
+    perf = (
+        df_valid
+        .groupby(["distribution", "cache"])["speedup"]
+        .mean()
+        .reset_index()
+    )
+
+    # For each distribution, pick the cache with max avg speedup
+    idx = perf.groupby("distribution")["speedup"].idxmax()
+    best = perf.loc[idx].sort_values("distribution")
+
+    # Save table as CSV
+    out_csv = os.path.join(outdir, "best_cache_per_distribution.csv")
+    best.to_csv(out_csv, index=False)
+    print(f"Saved best-per-distribution table to {out_csv}")
+
+    # Plot
+    plt.figure(figsize=(6, 4))
+    bars = plt.bar(best["distribution"], best["speedup"])
+    plt.ylabel("Best avg speedup vs no-cache")
+    plt.title("Best Cache per Distribution (throughput)")
+
+    for bar, (_, row) in zip(bars, best.iterrows()):
+        height = bar.get_height()
+        label = f"{row['cache']} ({height:.2f}x)"
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            label,
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+
+    plt.tight_layout()
+    out_png = os.path.join(outdir, "best_cache_per_distribution.png")
+    plt.savefig(out_png)
+    plt.close()
+    print(f"Saved {out_png}")
+
+
+def plot_best_cache_per_workload(df, outdir):
+    """
+    For each workload (A, B, C...), find the cache (including 'none')
+    with the highest average speedup vs no-cache, and plot it.
+    """
+    df_valid = df.dropna(subset=["speedup", "cache", "workload"])
+
+    if df_valid.empty:
+        print("No valid data for best-cache-per-workload plot.")
+        return
+
+    # Average speedup per (workload, cache)
+    perf = (
+        df_valid
+        .groupby(["workload", "cache"])["speedup"]
+        .mean()
+        .reset_index()
+    )
+
+    # For each workload, pick the cache with max avg speedup
+    idx = perf.groupby("workload")["speedup"].idxmax()
+    best = perf.loc[idx].sort_values("workload")
+
+    # Save table as CSV
+    out_csv = os.path.join(outdir, "best_cache_per_workload.csv")
+    best.to_csv(out_csv, index=False)
+    print(f"Saved best-per-workload table to {out_csv}")
+
+    # Plot
+    plt.figure(figsize=(6, 4))
+    bars = plt.bar(best["workload"], best["speedup"])
+    plt.ylabel("Best avg speedup vs no-cache")
+    plt.title("Best Cache per Workload (throughput)")
+
+    for bar, (_, row) in zip(bars, best.iterrows()):
+        height = bar.get_height()
+        label = f"{row['cache']} ({height:.2f}x)"
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            label,
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+
+    plt.tight_layout()
+    out_png = os.path.join(outdir, "best_cache_per_workload.png")
+    plt.savefig(out_png)
+    plt.close()
+    print(f"Saved {out_png}")
 
 
 def main():
@@ -295,14 +606,24 @@ def main():
 
     df = pd.DataFrame(rows)
     df = compute_speedups(df)
+    df = compute_latency_speedups(df)
+
     summary_path = os.path.join(args.outdir, "ycsb_summary.csv")
     df.to_csv(summary_path, index=False)
     print(f"Wrote summary CSV to {summary_path}")
 
+    # Throughput-based plots
     plot_heatmap_cache_vs_workload(df, args.outdir)
+    plot_heatmap_cache_vs_distribution(df, args.outdir)
     plot_overall_cache_speedup(df, args.outdir)
     plot_win_counts(df, args.outdir)
     plot_distribution_improvement(df, args.outdir)
+    plot_best_cache_per_distribution(df, args.outdir)
+    plot_best_cache_per_workload(df, args.outdir)
+
+    # Latency-based plots (p99 READ)
+    plot_latency_heatmap_cache_vs_workload(df, args.outdir)
+    plot_latency_heatmap_cache_vs_distribution(df, args.outdir)
 
 
 if __name__ == "__main__":

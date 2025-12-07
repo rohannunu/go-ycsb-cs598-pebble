@@ -1,0 +1,4 @@
+workload,cache,speedup
+A,lru,1.3129826282872283
+B,none,1.0
+C,detox,1.126613773800361

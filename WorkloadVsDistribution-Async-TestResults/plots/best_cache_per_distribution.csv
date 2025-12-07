@@ -1,0 +1,5 @@
+distribution,cache,speedup
+hotspot,detox,1.4937456699603058
+sequential,none,1.0
+uniform,lru,1.0495796168495546
+zipfian,detox,1.5615907876973596
