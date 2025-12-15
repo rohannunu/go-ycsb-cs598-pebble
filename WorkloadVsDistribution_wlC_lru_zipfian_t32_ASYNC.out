@@ -1,0 +1,52 @@
+Using request distribution 'zipfian' a keyrange of [0 25000000]
+>>> registering pebble LRU wrapper... <<<
+2025/12/14 12:08:31 [JOB 1] WAL file /tmp/pebble/073803.log with log number 073803 stopped reading at offset: 0; replayed 0 keys in 0 batches
+***************** properties *****************
+"fieldlength"="200"
+"dotransactions"="true"
+"table"="usertable"
+"insertproportion"="0"
+"dropdata"="false"
+"workload"="core"
+"requestdistribution"="zipfian"
+"pebble.lru_capacity"="2500000"
+"readallfields"="true"
+"fieldcount"="10"
+"scanproportion"="0"
+"command"="run"
+"readproportion"="1"
+"recordcount"="25000000"
+"updateproportion"="0"
+"threadcount"="32"
+"pebble.dir"="/tmp/pebble"
+"operationcount"="3000000"
+**********************************************
+READ   - Takes(s): 10.0, Count: 402834, OPS: 40284.8, Avg(us): 788, Min(us): 2, Max(us): 35071, 50th(us): 360, 90th(us): 2175, 95th(us): 2799, 99th(us): 4163, 99.9th(us): 6487, 99.99th(us): 16719
+TOTAL  - Takes(s): 10.0, Count: 402834, OPS: 40280.4, Avg(us): 788, Min(us): 2, Max(us): 35071, 50th(us): 360, 90th(us): 2175, 95th(us): 2799, 99th(us): 4163, 99.9th(us): 6487, 99.99th(us): 16719
+READ   - Takes(s): 20.0, Count: 828371, OPS: 41420.0, Avg(us): 766, Min(us): 1, Max(us): 35071, 50th(us): 327, 90th(us): 2151, 95th(us): 2761, 99th(us): 4079, 99.9th(us): 6119, 99.99th(us): 15871
+TOTAL  - Takes(s): 20.0, Count: 828371, OPS: 41418.3, Avg(us): 766, Min(us): 1, Max(us): 35071, 50th(us): 327, 90th(us): 2151, 95th(us): 2761, 99th(us): 4079, 99.9th(us): 6119, 99.99th(us): 15871
+READ   - Takes(s): 30.0, Count: 1270246, OPS: 42342.4, Avg(us): 749, Min(us): 1, Max(us): 35071, 50th(us): 307, 90th(us): 2119, 95th(us): 2721, 99th(us): 4019, 99.9th(us): 5979, 99.99th(us): 13879
+TOTAL  - Takes(s): 30.0, Count: 1270246, OPS: 42340.9, Avg(us): 749, Min(us): 1, Max(us): 35071, 50th(us): 307, 90th(us): 2119, 95th(us): 2721, 99th(us): 4019, 99.9th(us): 5979, 99.99th(us): 13879
+READ   - Takes(s): 40.0, Count: 1690501, OPS: 42263.6, Avg(us): 750, Min(us): 1, Max(us): 35071, 50th(us): 304, 90th(us): 2123, 95th(us): 2729, 99th(us): 4051, 99.9th(us): 6155, 99.99th(us): 13431
+TOTAL  - Takes(s): 40.0, Count: 1690501, OPS: 42263.1, Avg(us): 750, Min(us): 1, Max(us): 35071, 50th(us): 304, 90th(us): 2123, 95th(us): 2729, 99th(us): 4051, 99.9th(us): 6155, 99.99th(us): 13431
+READ   - Takes(s): 50.0, Count: 2132815, OPS: 42656.9, Avg(us): 743, Min(us): 1, Max(us): 35071, 50th(us): 291, 90th(us): 2115, 95th(us): 2717, 99th(us): 4021, 99.9th(us): 6043, 99.99th(us): 12095
+TOTAL  - Takes(s): 50.0, Count: 2132815, OPS: 42656.1, Avg(us): 743, Min(us): 1, Max(us): 35071, 50th(us): 291, 90th(us): 2115, 95th(us): 2717, 99th(us): 4021, 99.9th(us): 6043, 99.99th(us): 12095
+READ   - Takes(s): 60.0, Count: 2615178, OPS: 43586.6, Avg(us): 727, Min(us): 1, Max(us): 35071, 50th(us): 275, 90th(us): 2077, 95th(us): 2671, 99th(us): 3961, 99.9th(us): 5963, 99.99th(us): 12111
+TOTAL  - Takes(s): 60.0, Count: 2615178, OPS: 43585.7, Avg(us): 727, Min(us): 1, Max(us): 35071, 50th(us): 275, 90th(us): 2077, 95th(us): 2671, 99th(us): 3961, 99.9th(us): 5963, 99.99th(us): 12111
+**********************************************
+Run finished, takes 1m7.933698918s
+READ   - Takes(s): 67.9, Count: 3000000, OPS: 44161.8, Avg(us): 715, Min(us): 1, Max(us): 35071, 50th(us): 254, 90th(us): 2057, 95th(us): 2649, 99th(us): 3927, 99.9th(us): 5891, 99.99th(us): 11695
+TOTAL  - Takes(s): 67.9, Count: 3000000, OPS: 44161.6, Avg(us): 715, Min(us): 1, Max(us): 35071, 50th(us): 254, 90th(us): 2057, 95th(us): 2649, 99th(us): 3927, 99.9th(us): 5891, 99.99th(us): 11695
+=== LRU Cache Stats ===
+  Hits:       1484553
+  Misses:     1515447
+  Hit Rate:   49.49%
+  Promotions: 1515447
+  Evictions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 3000000
+  Unique keys:        1515437
+  Repeated accesses:  1484563
+  Repeat ratio:       49.49%
+=======================

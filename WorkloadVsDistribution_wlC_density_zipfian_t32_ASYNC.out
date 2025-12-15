@@ -1,0 +1,52 @@
+Using request distribution 'zipfian' a keyrange of [0 25000000]
+>>> registering pebble DensityCache wrapper... <<<
+2025/12/14 12:11:03 [JOB 1] WAL file /tmp/pebble/073809.log with log number 073809 stopped reading at offset: 0; replayed 0 keys in 0 batches
+***************** properties *****************
+"requestdistribution"="zipfian"
+"workload"="core"
+"insertproportion"="0"
+"dropdata"="false"
+"threadcount"="32"
+"dotransactions"="true"
+"scanproportion"="0"
+"pebble.density_capacity"="2500000"
+"fieldcount"="10"
+"readproportion"="1"
+"operationcount"="3000000"
+"command"="run"
+"recordcount"="25000000"
+"updateproportion"="0"
+"pebble.dir"="/tmp/pebble"
+"table"="usertable"
+"fieldlength"="200"
+"readallfields"="true"
+**********************************************
+READ   - Takes(s): 10.0, Count: 394517, OPS: 39447.7, Avg(us): 805, Min(us): 2, Max(us): 40127, 50th(us): 349, 90th(us): 2247, 95th(us): 2897, 99th(us): 4335, 99.9th(us): 6763, 99.99th(us): 17727
+TOTAL  - Takes(s): 10.0, Count: 394517, OPS: 39444.8, Avg(us): 805, Min(us): 2, Max(us): 40127, 50th(us): 349, 90th(us): 2247, 95th(us): 2897, 99th(us): 4335, 99.9th(us): 6763, 99.99th(us): 17727
+READ   - Takes(s): 20.0, Count: 807104, OPS: 40351.3, Avg(us): 786, Min(us): 2, Max(us): 40127, 50th(us): 315, 90th(us): 2233, 95th(us): 2879, 99th(us): 4279, 99.9th(us): 6483, 99.99th(us): 14575
+TOTAL  - Takes(s): 20.0, Count: 807104, OPS: 40348.4, Avg(us): 786, Min(us): 2, Max(us): 40127, 50th(us): 315, 90th(us): 2233, 95th(us): 2879, 99th(us): 4279, 99.9th(us): 6483, 99.99th(us): 14575
+READ   - Takes(s): 30.0, Count: 1250474, OPS: 41681.1, Avg(us): 761, Min(us): 2, Max(us): 40127, 50th(us): 272, 90th(us): 2193, 95th(us): 2831, 99th(us): 4187, 99.9th(us): 6235, 99.99th(us): 13103
+TOTAL  - Takes(s): 30.0, Count: 1250474, OPS: 41680.3, Avg(us): 761, Min(us): 2, Max(us): 40127, 50th(us): 272, 90th(us): 2193, 95th(us): 2831, 99th(us): 4187, 99.9th(us): 6235, 99.99th(us): 13103
+READ   - Takes(s): 40.0, Count: 1695685, OPS: 42390.9, Avg(us): 748, Min(us): 2, Max(us): 40127, 50th(us): 253, 90th(us): 2167, 95th(us): 2795, 99th(us): 4127, 99.9th(us): 6139, 99.99th(us): 12343
+TOTAL  - Takes(s): 40.0, Count: 1695685, OPS: 42390.0, Avg(us): 748, Min(us): 2, Max(us): 40127, 50th(us): 253, 90th(us): 2167, 95th(us): 2795, 99th(us): 4127, 99.9th(us): 6139, 99.99th(us): 12343
+READ   - Takes(s): 50.0, Count: 2130646, OPS: 42612.0, Avg(us): 744, Min(us): 2, Max(us): 40127, 50th(us): 239, 90th(us): 2165, 95th(us): 2789, 99th(us): 4107, 99.9th(us): 6071, 99.99th(us): 11759
+TOTAL  - Takes(s): 50.0, Count: 2130646, OPS: 42611.3, Avg(us): 744, Min(us): 2, Max(us): 40127, 50th(us): 239, 90th(us): 2165, 95th(us): 2789, 99th(us): 4107, 99.9th(us): 6071, 99.99th(us): 11759
+READ   - Takes(s): 60.0, Count: 2615660, OPS: 43593.3, Avg(us): 728, Min(us): 1, Max(us): 40127, 50th(us): 211, 90th(us): 2133, 95th(us): 2751, 99th(us): 4053, 99.9th(us): 5959, 99.99th(us): 10991
+TOTAL  - Takes(s): 60.0, Count: 2615660, OPS: 43592.6, Avg(us): 728, Min(us): 1, Max(us): 40127, 50th(us): 211, 90th(us): 2133, 95th(us): 2751, 99th(us): 4053, 99.9th(us): 5959, 99.99th(us): 10991
+**********************************************
+Run finished, takes 1m7.983566233s
+READ   - Takes(s): 68.0, Count: 3000000, OPS: 44128.6, Avg(us): 716, Min(us): 1, Max(us): 40127, 50th(us): 188, 90th(us): 2117, 95th(us): 2733, 99th(us): 4031, 99.9th(us): 5919, 99.99th(us): 10663
+TOTAL  - Takes(s): 68.0, Count: 3000000, OPS: 44128.4, Avg(us): 716, Min(us): 1, Max(us): 40127, 50th(us): 188, 90th(us): 2117, 95th(us): 2733, 99th(us): 4031, 99.9th(us): 5919, 99.99th(us): 10663
+=== Density Cache Stats ===
+  Hits:       1484774
+  Misses:     1515226
+  Hit Rate:   49.49%
+  Admissions: 1515222
+  Evictions:  0
+=======================
+=== Key Reuse Stats ===
+  Total key accesses: 3000000
+  Unique keys:        1515221
+  Repeated accesses:  1484779
+  Repeat ratio:       49.49%
+=======================
